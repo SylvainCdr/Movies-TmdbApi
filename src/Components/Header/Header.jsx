@@ -3,8 +3,8 @@ import "./style.scss";
 import { NavLink } from "react-router-dom";
 
 function Header() {
-  const linkedin = "https://www.linkedin.com/in/sylvain-cadoret/";
-  const github = "https://github.com/SylvainCdr";
+  const link1 = "https://www.google.fr";
+  const link2 = "https://www.youtube.com";
 
   // Creation fonction menu Burger
   let isBurgerOpen = false;
@@ -34,13 +34,13 @@ function Header() {
               <NavLink to="/page4">Page4</NavLink>
             </li>
             <span>
-              <a href={github} target="_blank" rel="noopener noreferrer">
+              <a href={link1} target="_blank" rel="noopener noreferrer">
                 <img
                   src="https://img.icons8.com/?size=64&id=52539&format=png"
                   alt="github"
                 />
               </a>
-              <a href={linkedin} target="_blank" rel="noopener noreferrer">
+              <a href={link2} target="_blank" rel="noopener noreferrer">
                 <img
                   src="https://img.icons8.com/fluent/48/000000/linkedin.png"
                   alt="linkedin"
