@@ -137,7 +137,15 @@ body {
   font-family: 'Hind', sans-serif;
   max-width: 1280px;
   margin: auto;
-  /* background-color: rgb(30, 30, 30); */
-  /* color: white; */
+  background-color: rgb(29, 29, 29);
+color: white; 
  
+}
+
+:root {
+  --color-primary: #f9ed69;
+  --color-secondary: #f08a5d;
+  --color-tertiary: #b83b5e;
+  --color-quaternary: #6a2c70;
+  --color-quinary: #1b1b1e;
 }

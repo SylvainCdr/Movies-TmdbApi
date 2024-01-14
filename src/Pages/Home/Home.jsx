@@ -45,17 +45,23 @@ function Movies() {
 
   return (
     <div className="container">
-      <h1>Homepage</h1>
+      < div className="hero">
+      <h1>FilmExplorer</h1>
+      </div>
+
+
       {/* Barre de recherche */}
-      <h2>Search</h2>
+
+      <div className="search">
+      
       <form onSubmit={handleSearch}>
         <input
           type="text"
-          placeholder="Search"
+          placeholder="Saisissez un titre de film"
           value={search}
           onChange={handleSearchChange}
         />
-        <button type="submit">Search</button>
+        <button type="submit">Rechercher</button>
       </form>
       {/* On affiche les résultats de la recherche en masquant la div discoverMovies */}
       <div className="searchMovies">
@@ -67,29 +73,30 @@ function Movies() {
               src={`https://image.tmdb.org/t/p/w500/${searchResult.poster_path}`}
               alt={searchResult.title}
             />
-            <p>{searchResult.overview.substring(0, 150)} ...</p>
+            <p>{searchResult.overview.substring(0, 200)} ...</p>
             <p>
-              <span>{searchResult.vote_average}</span>{" "}
+              <span>{searchResult.vote_average}</span> 
               <span>{searchResult.vote_count}</span>
             </p>
           </div>
         ))}
       </div>
+      </div>
       {/* Liste des films à découvrir récupérés de l'API et elle est masquée si il y a des résultats de recherche*/}
       {searchResults.length === 0 && (
         <div className="discoverMovies">
           {discoverMovies.map((discoverMovie) => (
-            <div key={discoverMovie.id}>
+            <div key={discoverMovie.id} className="discoverMovie_card">
               <h2>{discoverMovie.title}</h2>
-              <p>{discoverMovie.release_date.split("-")[0]}</p>
+              <span>{discoverMovie.release_date.split("-")[0]}</span>
               <img
                 src={`https://image.tmdb.org/t/p/w500/${discoverMovie.poster_path}`}
                 alt={discoverMovie.title}
               />
-              <p>{discoverMovie.overview.substring(0, 150)} ...</p>
+              <p>{discoverMovie.overview.substring(0, 200)} ...</p>
               <p>
-                <span>{discoverMovie.vote_average}</span>{" "}
-                <span>{discoverMovie.vote_count}</span>
+                <span>{discoverMovie.vote_average}/10 ({discoverMovie.vote_count} reviews)</span>{" "}
+                
               </p>
             </div>
           ))}
