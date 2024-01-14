@@ -1,0 +1,38 @@
+
+.container {
+
+width: 100%;
+
+
+    .searchMovies {
+        
+        display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+
+        IMG {
+            width: 100%;
+            height: auto;
+        
+        }
+        }
+
+
+
+.discoverMovies {
+
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+
+    IMG {
+        width: 100%;
+        height: auto;
+    
+    }
+
+
+
+
+}
+}

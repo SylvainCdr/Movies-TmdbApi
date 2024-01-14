@@ -1,14 +1,102 @@
 import "./style.scss";
-// import { useState, useEffect } from "react";
-// import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 
-function Homepage() {
-  
+function Movies() {
+  // État pour stocker les films à découvrir
+  const [discoverMovies, setDiscoverMovies] = useState([]);
+
+  // État pour stocker les résultats de recherche
+  const [searchResults, setSearchResults] = useState([]);
+
+  // État pour stocker la valeur de la barre de recherche
+  const [search, setSearch] = useState("");
+
+  // Effet secondaire pour charger les films à découvrir au montage du composant
+  useEffect(() => {
+    const API_KEY = process.env.REACT_APP_API_KEY;
+    fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}`)
+      .then((res) => res.json())
+      .then((json) => {
+        console.log(json);
+        setDiscoverMovies(json.results);
+      });
+  }, []);
+
+  // Fonction pour mettre à jour l'état de la barre de recherche lors de la saisie
+  const handleSearchChange = (event) => {
+    setSearch(event.target.value);
+  };
+
+  // Fonction pour gérer la soumission du formulaire de recherche
+  const handleSearch = (event) => {
+    event.preventDefault();
+
+    // Appel à l'API pour effectuer la recherche de films
+    const API_KEY = process.env.REACT_APP_API_KEY;
+    fetch(
+      `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${search}`
+    )
+      .then((res) => res.json())
+      .then((json) => {
+        console.log(json);
+        setSearchResults(json.results);
+      });
+  };
+
   return (
-    <div className="homepage">
+    <div className="container">
       <h1>Homepage</h1>
+      {/* Barre de recherche */}
+      <h2>Search</h2>
+      <form onSubmit={handleSearch}>
+        <input
+          type="text"
+          placeholder="Search"
+          value={search}
+          onChange={handleSearchChange}
+        />
+        <button type="submit">Search</button>
+      </form>
+      {/* On affiche les résultats de la recherche en masquant la div discoverMovies */}
+      <div className="searchMovies">
+        {searchResults.map((searchResult) => (
+          <div key={searchResult.id}>
+            <h2>{searchResult.title}</h2>
+            <p>{searchResult.release_date.split("-")[0]}</p>
+            <img
+              src={`https://image.tmdb.org/t/p/w500/${searchResult.poster_path}`}
+              alt={searchResult.title}
+            />
+            <p>{searchResult.overview.substring(0, 150)} ...</p>
+            <p>
+              <span>{searchResult.vote_average}</span>{" "}
+              <span>{searchResult.vote_count}</span>
+            </p>
+          </div>
+        ))}
+      </div>
+      {/* Liste des films à découvrir récupérés de l'API et elle est masquée si il y a des résultats de recherche*/}
+      {searchResults.length === 0 && (
+        <div className="discoverMovies">
+          {discoverMovies.map((discoverMovie) => (
+            <div key={discoverMovie.id}>
+              <h2>{discoverMovie.title}</h2>
+              <p>{discoverMovie.release_date.split("-")[0]}</p>
+              <img
+                src={`https://image.tmdb.org/t/p/w500/${discoverMovie.poster_path}`}
+                alt={discoverMovie.title}
+              />
+              <p>{discoverMovie.overview.substring(0, 150)} ...</p>
+              <p>
+                <span>{discoverMovie.vote_average}</span>{" "}
+                <span>{discoverMovie.vote_count}</span>
+              </p>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
 
-export default Homepage;
+export default Movies;
