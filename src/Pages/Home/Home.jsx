@@ -35,6 +35,7 @@ function Movies() {
     setSelectedMovie(movie);
     setShowModal(true);
   };
+ 
 
 
   // Effet secondaire pour charger les films à découvrir au montage du composant
