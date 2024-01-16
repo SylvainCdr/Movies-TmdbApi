@@ -1,11 +1,20 @@
 import "./style.scss";
 
+import React, { useState, useEffect } from "react";
+
+
+
+
 function Page2() {
-    return (
-        <div className="container">
-        <h1>Page2</h1>
-        </div>
-    );
-    }
+  
+
+  return (
+    <div>
+    <h1>Page 2</h1>
+    </div>
+  );
+
+}
 
 export default Page2;
+
