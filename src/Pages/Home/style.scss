@@ -17,15 +17,29 @@ width: 100%;
        -moz-border-radius:10rem;
        -ms-border-radius:10rem;
        -o-border-radius:10rem;
+
        h1
 {
-            font-family: 'Montserrat', sans-serif;
+    
+    font-family: 'bebas-neue', sans-serif;
+    text-transform: uppercase;
             font-size: 5rem;
             color: rgb(130, 0, 252);
             padding-top: 12rem;
             text-shadow: 2px 2px 3px rgba(184, 235, 255, 0.904);
             font-weight: 700;
             } 
+            h2 {
+                
+                font-family: 'bebas-neue', sans-serif;
+                text-transform: uppercase;
+                font-size: 3.5rem;
+                color: rgb(130, 0, 252);
+                padding-top: 13.1rem;
+                text-shadow: 2px 2px 3px rgba(184, 235, 255, 0.904);
+                font-weight: 700;
+            }
+            
 }
 
 
@@ -83,7 +97,7 @@ width: 100%;
     grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
 
-        IMG {
+        img {
             width: 100%;
             height: auto;
         
@@ -91,12 +105,32 @@ width: 100%;
         }
     }
 
+    h2
+    {
+                font-family: 'bebas-neue', sans-serif;
+                font-size: 2rem;
+                font-weight: 700;
+                margin-top: 1rem;
+                margin-bottom: 1rem;
+            }
+
+    .upcomingMovies {
+        margin-bottom: 2rem;
+        
+        img {
+            width: 95%;
+          
+        }
+    }
+
+
+
 
 
 .discoverMovies {
 
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 1rem;
 
     .discoverMovie_card 
@@ -105,7 +139,6 @@ width: 100%;
     border:solid 1px rgb(79, 79, 79);
     padding: 0.5rem;
     border-radius:0.5rem;
-   
 
     h2
     {
@@ -146,47 +179,11 @@ span {
     right: 0;
 }
     
-
 }
     
 }
 
-.upcomingMovies 
-{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
 
-    .upcomingMovie_card 
-    {
-        
-    border:solid 1px rgb(79, 79, 79);
-    padding: 0.5rem;
-    border-radius:0.5rem;
-   
-
-    h2
-    {
-       
-        height: 4vh;
-        font-family: 'Montserrat', sans-serif;
-        font-size: 1.2rem;
-        font-weight: 700;
-        text-align: center;
-    }
-
-    img {
-        width: 100%;
-        height: auto;
-        border-radius: 0.5rem;
-        -webkit-border-radius: 0.5rem;
-        -moz-border-radius: 0.5rem;
-        -ms-border-radius: 0.5rem;
-        -o-border-radius: 0.5rem;
-
-}
-    }
-}
 
 
 }

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 
+
 // DEBUT COMPOSANT SLIDE
 
 // AJOUTER PACKAGE REACT SLICK : npm install react-slick slick-carousel

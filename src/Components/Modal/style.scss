@@ -1,0 +1,38 @@
+/* style.scss (Composant parent) */
+
+.movieModal {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .hero {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .search {
+    margin-bottom: 20px;
+  
+    form {
+      display: flex;
+      gap: 10px;
+  
+      input {
+        padding: 8px;
+        font-size: 16px;
+      }
+  
+      button {
+        padding: 8px 12px;
+        font-size: 16px;
+        background-color: #007bff;
+        color: #fff;
+        cursor: pointer;
+        border: none;
+      }
+    }
+  }
+  
+  /* Ajoutez d'autres styles au besoin */
+  
