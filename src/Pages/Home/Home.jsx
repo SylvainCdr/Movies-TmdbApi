@@ -23,7 +23,8 @@ function Movies() {
   };
   // FIN PARAMETRAGE DU CAROUSEL
 
-  // État pour stocker les discoverMovies, les résultats Search, la valeur de la barre de Search
+  // État pour stocker les discoverMovies, les résultats Search, la valeur de la barre de Search, 
+  // le film sélectionné et l'état du modal
   const [discoverMovies, setDiscoverMovies] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
   const [search, setSearch] = useState("");
@@ -93,17 +94,18 @@ function Movies() {
         {/* On affiche les résultats de la recherche en masquant la div discoverMovies */}
         <div className="searchMovies">
           {searchResults.map((searchResult) => (
-            <div key={searchResult.id}>
+            <div key={searchResult.id} className="resultsMovies">
               <h2>{searchResult.title}</h2>
-              <p>{searchResult.release_date.split("-")[0]}</p>
+              <span>{searchResult.release_date.split("-")[0]}</span>
               <img
                 src={`https://image.tmdb.org/t/p/w500/${searchResult.poster_path}`}
                 alt={searchResult.title}
+                onClick={() => handleClick(searchResult)} 
               />
-              <p>{searchResult.overview.substring(0, 200)} ...</p>
+              {/* <p>{searchResult.overview.substring(0, 200)} ...</p> */}
               <p>
-                <span>{searchResult.vote_average}</span>
-                <span>{searchResult.vote_count}</span>
+                <span>{searchResult.vote_average}/10 </span>
+                <span>({searchResult.vote_count} reviews)</span>
               </p>
             </div>
           ))}
@@ -114,7 +116,7 @@ function Movies() {
         <div className="upcomingMovies">
         
         <h2>Upcoming movies</h2>
-        <div className="upcomingMovies_carousel">
+        <div className="upcomingMovies_carousel" >
           {/* Rend le composant Carousel avec les propriétés définies dans props */}
           <Carousel {...props} />
         </div>
@@ -128,13 +130,14 @@ function Movies() {
    {discoverMovies.map((discoverMovie) => (
   <div key={discoverMovie.id} className="discoverMovie_card">
     <h2>{discoverMovie.title}</h2>
+    <span>{discoverMovie.release_date.split('-')[0]}</span>
     {/* Autres informations sur le film */}
     <img
       src={`https://image.tmdb.org/t/p/w500/${discoverMovie.poster_path}`}
       alt={discoverMovie.title}
       onClick={() => handleClick(discoverMovie)} 
     />
-    <p>{discoverMovie.overview.substring(0, 200)} ...</p>
+    {/* <p>{discoverMovie.overview.substring(0, 200)} ...</p> */}
     <p>
       <span>
         {discoverMovie.vote_average}/10 ({discoverMovie.vote_count} reviews)

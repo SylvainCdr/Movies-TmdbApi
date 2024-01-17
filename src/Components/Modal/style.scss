@@ -1,25 +1,61 @@
 /* style.scss (Composant parent) */
 
-.modal {
 
-display: flex;
-   width: 70%;
-   background-color: rgb(52, 52, 52);
-   position:fixed;
-   top:2%;
-   left : 13%;
    
 
-   h1 {
-    margin: 1rem;
-        text-align: center;
-        font-size: 3rem;
-   }
 
-   img {
-    width: 40%;
+.containerModal{
+
+    
+ 
+   
+    width: 60%;
     height: auto;
-    object-fit: cover;
-   }
+   background-color: rgb(52, 52, 52);
+   position:fixed;
+   top: 5%;
+   left : 20%;
 
+   .movieModal {
+
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap : 2rem;
+
+
+ .movieModal_img {
+
+
+    h1 {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 2rem;
+        color: white;
+        margin-top : 1rem;
+        text-align: center;
+    }
+  
+
+    img {
+        width: 100%;
+        text-align: center;
+        margin : 1rem;
+       
+ }
+}
+
+ .movieModal_details {
+   width: 100%;
+    color: white;
+    font-size: 1.2rem;
+
+    p {
+        margin-top: 1rem;
+        margin-left: 1rem;
+        font-family: 'Montserrat', sans-serif;
+    }
+    
+   
+ 
+}
+ }
 }
