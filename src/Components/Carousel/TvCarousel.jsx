@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import style from "./style.scss";
-import Modal from "../Modals/ModalMovie";
+import ModalTv from "../../Components/Modals/ModalTv";
+
 
 // DEBUT COMPOSANT SLIDE
 
@@ -14,16 +15,16 @@ import "slick-carousel/slick/slick-theme.css";
 // Définit la fonction Carousel, qui représente un carrousel de films
 // on récupère les props du composant Carousel
 
-export default function Carousel(props) {
+export default function TvCarousel(props) {
   // Etat pour stocker les films à venir
-  const [moviesToDisplay, setMoviesToDisplay] = useState([]);
-  const [selectedMovie, setSelectedMovie] = useState(null);
+  const [tvToDisplay, setTvToDisplay] = useState([]);
+  const [selectedTv, setSelectedTv] = useState(null);
   const [showModal, setShowModal] = useState(false);
 
   // Fonction pour gérer le clic sur une image de film
-  const handleClick = (movie) => {
-    console.log("Clicked on movie:", movie);
-    setSelectedMovie(movie);
+  const handleClick = (tv) => {
+    console.log("Clicked on movie:", tv);
+    setSelectedTv(tv);
     setShowModal(true);
   };
 
@@ -34,32 +35,32 @@ export default function Carousel(props) {
       .then((res) => res.json())
       .then((json) => {
         console.log(json);
-        setMoviesToDisplay(json.results);
+        setTvToDisplay(json.results);
       });
   }, []);
 
   // Définit un objet props avec les propriétés que vous souhaitez passer à Carousel
   return (
     <div>
-      {moviesToDisplay.length > 0 && (
+      {tvToDisplay.length > 0 && (
         <Slider {...props}>
-          {moviesToDisplay.map((movieToDisplay) => (
-            <div key={movieToDisplay.id} className="upcomingMovie_carousel">
-              <h3>{movieToDisplay.title}</h3>
+          {tvToDisplay.map((tvToDisplay) => (
+            <div key={tvToDisplay.id} className="upcomingMovie_carousel">
+              <h3>{tvToDisplay.title}</h3>
               <img
-                src={`${props.imgUrl}${movieToDisplay.poster_path}`}
-                alt={movieToDisplay.title}
-                onClick={() => handleClick(movieToDisplay)}
+                src={`${props.imgUrl}${tvToDisplay.poster_path}`}
+                alt={tvToDisplay.title}
+                onClick={() => handleClick(tvToDisplay)}
               />
             </div>
           ))}
         </Slider>
       )}
 
-      {/* Modal pour afficher les détails du film */}
-      {selectedMovie && selectedMovie.id && (
-        <Modal
-          movie={selectedMovie}
+      Modal pour afficher les détails du film
+      {selectedTv && selectedTv.id && (
+        <ModalTv
+          tv={selectedTv}
           showModal={showModal}
           setShowModal={setShowModal}
         />

@@ -1,7 +1,7 @@
 import "./style.scss";
 import React, { useState, useEffect } from "react";
 // import { Link } from "react-router-dom";
-import Modal from "../../Components/Modal/Modal";
+import Modal from "../../Components/Modals/ModalMovie";
 
 import Carousel from "../../Components/Carousel/Carousel";
 
@@ -9,19 +9,19 @@ function Movies() {
   // Récupère la clé API à partir des variables d'environnement
   const API_KEY = process.env.REACT_APP_API_KEY;
 
-  // DEBUT PARAMETRAGE DU CAROUSEL
+  // DEBUT PARAMETRAGE DU CAROUSEL Upcoming Movies
   // Définit un objet props avec les propriétés que vous souhaitez passer à Carousel
   const props1 = {
     // dots: true, // Affiche les points de pagination
     infinite: true, // Permet de faire défiler le carrousel de manière infinie
     slidesToShow: 6, // Nombre de films à afficher à la fois
-    slidesToScroll: 2, // Nombre de films à faire défiler à la fois
+    slidesToScroll: 1, // Nombre de films à faire défiler à la fois
     autoplay: true, // Active le mode de lecture automatique
-    autoplaySpeed: 3000, // Vitesse de transition entre les slides en mode autoplay (en millisecondes)
+    autoplaySpeed: 2000, // Vitesse de transition entre les slides en mode autoplay (en millisecondes)
     apiUrl: `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}`, // URL de l'API TMDB pour les films à venir
     imgUrl: "https://image.tmdb.org/t/p/w500/", // URL de base pour les images des films
   };
-  // FIN PARAMETRAGE DU CAROUSEL
+  // FIN PARAMETRAGE DU CAROUSEL Upcoming Movies
 
   // DEBUT PARAMETRAGE DU CAROUSEL Top rated
   // Définit un objet props avec les propriétés que vous souhaitez passer à Carousel
@@ -29,9 +29,9 @@ function Movies() {
     // dots: true, // Affiche les points de pagination
     infinite: true, // Permet de faire défiler le carrousel de manière infinie
     slidesToShow: 6, // Nombre de films à afficher à la fois
-    slidesToScroll: 2, // Nombre de films à faire défiler à la fois
+    slidesToScroll: 1, // Nombre de films à faire défiler à la fois
     autoplay: true, // Active le mode de lecture automatique
-    autoplaySpeed: 3000, // Vitesse de transition entre les slides en mode autoplay (en millisecondes)
+    autoplaySpeed: 2000, // Vitesse de transition entre les slides en mode autoplay (en millisecondes)
     apiUrl: `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}`, // URL de l'API TMDB pour les films à venir
     imgUrl: "https://image.tmdb.org/t/p/w500/", // URL de base pour les images des films
   };
@@ -92,7 +92,7 @@ function Movies() {
         <h1>Film</h1> <br />
         <h2>Explorer</h2>
       </div>
-  {/* ------------------------------------------------------------------------------------ */}
+      {/* ------------------------------------------------------------------------------------ */}
       {/* DEBUT SEARCHBAR */}
       <div className="search">
         <form onSubmit={handleSearch}>
@@ -127,7 +127,7 @@ function Movies() {
         </div>
       </div>
       {/* FIN AFFICHAGE RESULTATS RECHERCHE*/}
-    {/* ------------------------------------------------------------------------------------ */}
+      {/* ------------------------------------------------------------------------------------ */}
       <div className="carousels">
         {/* DEBUT CAROUSEL Upcoming Movies*/}
         <div className="upcomingMovies_carousel">
@@ -136,7 +136,7 @@ function Movies() {
           <Carousel {...props1} />
         </div>
         {/* FIN CAROUSEL Upcoming Movies */}
-      {/* ------------------------------------------------------------------------------------ */}
+        {/* ------------------------------------------------------------------------------------ */}
         {/* DEBUT CAROUSEL Top Rated Movies*/}
         <div className="topRatedMovies_carousel">
           <h2>Top rated </h2>
@@ -144,8 +144,9 @@ function Movies() {
           <Carousel {...props2} />
         </div>
         {/* FIN CAROUSEL Top Rated Movies */}
-       {/* ------------------------------------------------------------------------------------ */}
+        {/* ------------------------------------------------------------------------------------ */}
       </div>
+
       {/* DEBUT TRENDING NOW LIST */}
       <h2>Trendings now list</h2>
       {/* Liste des films à découvrir récupérés de l'API et elle est masquée si il y a des résultats de recherche*/}
@@ -173,7 +174,8 @@ function Movies() {
         </div>
       )}
       {/* FIN TRENDING NOW LIST */}
-     {/* ------------------------------------------------------------------------------------ */}
+
+      {/* ------------------------------------------------------------------------------------ */}
       {/* APPEL DU COMPOSANT MODAL POUR AFFICHER LES DETAILS DU FILM */}
       {selectedMovie && selectedMovie.id && (
         <Modal

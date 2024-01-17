@@ -1,0 +1,101 @@
+/* style.scss (Composant parent) */
+
+.containerModal {
+  width: 80%;
+  height: auto;
+  background-color: rgb(51, 50, 50);
+  position: fixed;
+  z-index: 1000;
+  top: 2%;
+  left: 10%;
+  border-radius: 0.5rem;
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
+
+  .itemModal {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin : 0rem 1rem 1rem 0rem;
+
+    .itemModal_imgTitle {
+      width: 100%;
+      align-self: center;
+      text-align: center;
+      
+      
+
+     
+
+      img {
+        width: 60%;
+        margin-top: 1rem;
+        text-align: center;
+        border-radius: 0.5rem;
+        -webkit-border-radius: 0.5rem;
+        -moz-border-radius: 0.5rem;
+        -ms-border-radius: 0.5rem;
+        -o-border-radius: 0.5rem;
+}
+}
+    
+
+    .itemModal_details {
+      width: 100%;
+      color: white;
+      font-size: 1.2rem;
+      margin-right: 1rem;
+
+      h3 {
+        font-family: "Montserrat", sans-serif;
+        font-size: 2rem;
+        color: white;
+        font-weight: 600;
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+      
+        text-align: center;
+      }
+
+      h4, th, table {
+        font-size: 1.2rem;
+        color: white;
+        margin-top: 1rem;
+        color: rgb(251, 251, 255);
+       
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        border-spacing: 0;
+        margin-top: 1rem;
+
+        th {
+          color : rgb(16, 131, 16);
+         padding: 1rem; 
+        }
+
+        td {
+          margin: 0.5rem;
+          text-align: center;
+         
+        }
+         
+        
+        
+      }
+      
+      p {
+        
+        font-size: 1rem;
+        color: rgb(173, 173, 173);
+        margin-top: 0.5rem;
+      }
+
+     
+    }
+  }
+}

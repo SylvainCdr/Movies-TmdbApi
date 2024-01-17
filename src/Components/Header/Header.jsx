@@ -13,7 +13,7 @@ function Header() {
     nav.classList.toggle("active");
     isBurgerOpen = !isBurgerOpen;
   }
-  
+
   // Fin fonction menu Burger
 
   return (
@@ -22,17 +22,17 @@ function Header() {
         <nav className="header__nav">
           <ul onClick={burgerToggle}>
             <li>
-              <NavLink to="/">Accueil</NavLink>
+              <NavLink to="/">Movies</NavLink>
             </li>
             <li>
-              <NavLink to="/page2">Page2</NavLink>
+              <NavLink to="/tv">TV Series</NavLink>
             </li>
             <li>
-              <NavLink to="/page3">Page3</NavLink>
+              <NavLink to="/people">People</NavLink>
             </li>
-            <li>
+            {/* <li>
               <NavLink to="/page4">Page4</NavLink>
-            </li>
+            </li> */}
             <span>
               <a href={link1} target="_blank" rel="noopener noreferrer">
                 <img
@@ -40,8 +40,6 @@ function Header() {
                   alt="github"
                 />
               </a>
-              
-              
             </span>
           </ul>
           <div className="header__burgerMenu" onClick={burgerToggle}></div>

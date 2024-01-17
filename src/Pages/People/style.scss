@@ -1,0 +1,71 @@
+.container {
+
+
+    h2 {
+        font-family: "bebas-neue", sans-serif;
+        font-size: 2rem;
+        font-weight: 700;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      
+    .popularPeople {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 1rem;
+        
+        .popularPeople_card {
+      border: solid 1px rgb(79, 79, 79);
+      //padding: 0.5rem;
+      border-radius: 0.5rem;
+      
+      -webkit-border-radius: 0.5rem;
+      -moz-border-radius: 0.5rem;
+      -ms-border-radius: 0.5rem;
+      -o-border-radius: 0.5rem;
+h2{
+        height: 4vh;
+        font-family: "Montserrat", sans-serif;
+        font-size: 1.2rem;
+        font-weight: 500;
+        text-align: center;
+      }
+
+      img {
+        padding: 0rem;
+        width: 100%;
+        height: auto;
+        border-radius: 0.5rem;
+        -webkit-border-radius: 0.5rem;
+        -moz-border-radius: 0.5rem;
+        -ms-border-radius: 0.5rem;
+        -o-border-radius: 0.5rem;
+      }
+
+      p {
+        font-family: "Hind", sans-serif;
+        font-size: 1rem;
+        font-weight: 500;
+        text-align: center;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+      }
+      span {
+        font-family: "Hind", sans-serif;
+        font-size: 1rem;
+        font-weight: 500;
+        text-align: center;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+        color: rgb(0, 149, 89);
+        right: 0;
+      }
+      .date {
+        text-align: end;
+        margin-right: 1rem;
+        color: rgb(0, 149, 89);
+      }
+    }
+}
+}

@@ -26,28 +26,42 @@ function Modal({ movie, showModal, setShowModal }) {
   return (
     <div className="containerModal" onClick={handleClose}>
       {showModal && (
-        <div className="movieModal">
-          <div className="movieModal_img">
-            <h1>{movieById.title}</h1>
+        <div className="itemModal">
+          <div className="itemModal_imgTitle">
+            
 
             <img
               src={`https://image.tmdb.org/t/p/w500/${movieById.poster_path}`}
               alt={movieById.title}
             />
+          
           </div>
-          <div className="movieModal_details">
-          <p>
-  Genres: <br />
+          <div className="itemModal_details">
+          <h3>{movieById.title}</h3>
+            <h4>Release date </h4> 
+            <p>{movieById.release_date}</p>
+            
+          
+  <h4>Genres</h4> <p>
   {movieById.genres?.map((genre) => genre.name).join(", ") || "N/A"}
 </p>
 
-            <p>Release date : {movieById.release_date}</p>
-            <p>
-              Synopsis : <br />
+              <h4>Synopsis </h4> <p>
               {movieById.overview}
             </p>
-            <p>Rating : {movieById.vote_average}/10</p>
-            <p>Reviews : {movieById.vote_count}</p>
+            {/* tableau incluant vote_average & vote_count */}
+
+        <table>
+          <th>Note</th>
+          <th>Reviews</th>
+          <tr>
+            <td>{movieById.vote_average}/10</td>
+            <td>{movieById.vote_count}</td>
+          </tr>
+        </table>
+{/* 
+            <h4>Rating </h4><p>{movieById.vote_average}/10</p> 
+            <h4>Reviews </h4> <p>{movieById.vote_count}</p> */}
 
             {/* <p>{movieById.video}</p> */}
           </div>
