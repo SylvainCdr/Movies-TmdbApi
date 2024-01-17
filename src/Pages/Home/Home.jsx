@@ -1,7 +1,7 @@
 import "./style.scss";
 import React, { useState, useEffect } from "react";
 // import { Link } from "react-router-dom";
-import Modal from "../../Components/Modal/Modal"; 
+import Modal from "../../Components/Modal/Modal";
 
 import Carousel from "../../Components/Carousel/Carousel";
 
@@ -11,9 +11,9 @@ function Movies() {
 
   // DEBUT PARAMETRAGE DU CAROUSEL
   // Définit un objet props avec les propriétés que vous souhaitez passer à Carousel
-  const props = {
+  const props1 = {
     // dots: true, // Affiche les points de pagination
-     infinite: true, // Permet de faire défiler le carrousel de manière infinie
+    infinite: true, // Permet de faire défiler le carrousel de manière infinie
     slidesToShow: 6, // Nombre de films à afficher à la fois
     slidesToScroll: 2, // Nombre de films à faire défiler à la fois
     autoplay: true, // Active le mode de lecture automatique
@@ -23,7 +23,21 @@ function Movies() {
   };
   // FIN PARAMETRAGE DU CAROUSEL
 
-  // État pour stocker les discoverMovies, les résultats Search, la valeur de la barre de Search, 
+  // DEBUT PARAMETRAGE DU CAROUSEL Top rated
+  // Définit un objet props avec les propriétés que vous souhaitez passer à Carousel
+  const props2 = {
+    // dots: true, // Affiche les points de pagination
+    infinite: true, // Permet de faire défiler le carrousel de manière infinie
+    slidesToShow: 6, // Nombre de films à afficher à la fois
+    slidesToScroll: 2, // Nombre de films à faire défiler à la fois
+    autoplay: true, // Active le mode de lecture automatique
+    autoplaySpeed: 3000, // Vitesse de transition entre les slides en mode autoplay (en millisecondes)
+    apiUrl: `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}`, // URL de l'API TMDB pour les films à venir
+    imgUrl: "https://image.tmdb.org/t/p/w500/", // URL de base pour les images des films
+  };
+  // FIN PARAMETRAGE DU CAROUSEL Top rated
+
+  // État pour stocker les discoverMovies, les résultats Search, la valeur de la barre de Search,
   // le film sélectionné et l'état du modal
   const [discoverMovies, setDiscoverMovies] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
@@ -36,8 +50,6 @@ function Movies() {
     setSelectedMovie(movie);
     setShowModal(true);
   };
- 
-
 
   // Effet secondaire pour charger les films à découvrir au montage du composant
   useEffect(() => {
@@ -80,7 +92,8 @@ function Movies() {
         <h1>Film</h1> <br />
         <h2>Explorer</h2>
       </div>
-      {/* Barre de recherche */}
+  {/* ------------------------------------------------------------------------------------ */}
+      {/* DEBUT SEARCHBAR */}
       <div className="search">
         <form onSubmit={handleSearch}>
           <input
@@ -91,7 +104,9 @@ function Movies() {
           />
           <button type="submit">Search</button>
         </form>
-        {/* On affiche les résultats de la recherche en masquant la div discoverMovies */}
+        {/* FIN SEARCHBAR */}
+        {/* ------------------------------------------------------------------------------------ */}
+        {/* AFFICHAGE RESULTATS RECHERCHE EN MASQUANT LES DIV PAGE D ACCUEIL */}
         <div className="searchMovies">
           {searchResults.map((searchResult) => (
             <div key={searchResult.id} className="resultsMovies">
@@ -100,7 +115,7 @@ function Movies() {
               <img
                 src={`https://image.tmdb.org/t/p/w500/${searchResult.poster_path}`}
                 alt={searchResult.title}
-                onClick={() => handleClick(searchResult)} 
+                onClick={() => handleClick(searchResult)}
               />
               {/* <p>{searchResult.overview.substring(0, 200)} ...</p> */}
               <p>
@@ -110,53 +125,63 @@ function Movies() {
             </div>
           ))}
         </div>
+      </div>
+      {/* FIN AFFICHAGE RESULTATS RECHERCHE*/}
+    {/* ------------------------------------------------------------------------------------ */}
+      <div className="carousels">
+        {/* DEBUT CAROUSEL Upcoming Movies*/}
+        <div className="upcomingMovies_carousel">
+          <h2>Upcoming movies</h2>
+          {/* Rend le composant Carousel avec les propriétés définies dans props1 */}
+          <Carousel {...props1} />
         </div>
-
-        {/* DEBUT CAROUSEL */}
-        <div className="upcomingMovies">
-        
-        <h2>Upcoming movies</h2>
-        <div className="upcomingMovies_carousel" >
-          {/* Rend le composant Carousel avec les propriétés définies dans props */}
-          <Carousel {...props} />
+        {/* FIN CAROUSEL Upcoming Movies */}
+      {/* ------------------------------------------------------------------------------------ */}
+        {/* DEBUT CAROUSEL Top Rated Movies*/}
+        <div className="topRatedMovies_carousel">
+          <h2>Top rated </h2>
+          {/* Rend le composant Carousel avec les propriétés définies dans props2 */}
+          <Carousel {...props2} />
         </div>
-        </div>
-        {/* FIN CAROUSEL */}
-      
-        <h2>Trendings now</h2>
+        {/* FIN CAROUSEL Top Rated Movies */}
+       {/* ------------------------------------------------------------------------------------ */}
+      </div>
+      {/* DEBUT TRENDING NOW LIST */}
+      <h2>Trendings now list</h2>
       {/* Liste des films à découvrir récupérés de l'API et elle est masquée si il y a des résultats de recherche*/}
-{searchResults.length === 0 && (
-  <div className="discoverMovies">
-   {discoverMovies.map((discoverMovie) => (
-  <div key={discoverMovie.id} className="discoverMovie_card">
-    <h2>{discoverMovie.title}</h2>
-    <p className="date">{discoverMovie.release_date.split('-')[0]}</p>
-    {/* Autres informations sur le film */}
-    <img
-      src={`https://image.tmdb.org/t/p/w500/${discoverMovie.poster_path}`}
-      alt={discoverMovie.title}
-      onClick={() => handleClick(discoverMovie)} 
-    />
-    {/* <p>{discoverMovie.overview.substring(0, 200)} ...</p> */}
-    <p>
-      <span>
-        {discoverMovie.vote_average}/10 ({discoverMovie.vote_count} reviews)
-      </span>
-    </p>
-  </div>
-))}
-  </div>
-)}
-
-      {/* Modal pour afficher les détails du film */}
+      {searchResults.length === 0 && (
+        <div className="discoverMovies">
+          {discoverMovies.map((discoverMovie) => (
+            <div key={discoverMovie.id} className="discoverMovie_card">
+              <h2>{discoverMovie.title}</h2>
+              <p className="date">{discoverMovie.release_date.split("-")[0]}</p>
+              {/* Autres informations sur le film */}
+              <img
+                src={`https://image.tmdb.org/t/p/w500/${discoverMovie.poster_path}`}
+                alt={discoverMovie.title}
+                onClick={() => handleClick(discoverMovie)}
+              />
+              {/* <p>{discoverMovie.overview.substring(0, 200)} ...</p> */}
+              <p>
+                <span>
+                  {discoverMovie.vote_average}/10 ({discoverMovie.vote_count}{" "}
+                  reviews)
+                </span>
+              </p>
+            </div>
+          ))}
+        </div>
+      )}
+      {/* FIN TRENDING NOW LIST */}
+     {/* ------------------------------------------------------------------------------------ */}
+      {/* APPEL DU COMPOSANT MODAL POUR AFFICHER LES DETAILS DU FILM */}
       {selectedMovie && selectedMovie.id && (
-  <Modal
-    movie={selectedMovie}
-    showModal={showModal}
-    setShowModal={setShowModal}
-  />
-)}
-
+        <Modal
+          movie={selectedMovie}
+          showModal={showModal}
+          setShowModal={setShowModal}
+        />
+      )}
     </div>
   );
 }

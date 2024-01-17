@@ -1,6 +1,17 @@
 .container {
   width: 100%;
 
+  img {
+    &:hover {
+      -webkit-filter: brightness(125%);
+      -webkit-transition: all 0.3s ease;
+      -moz-transition: all s ease;
+      -o-transition: all s ease;
+      -ms-transition: all s ease;
+      transition: all s ease;
+    }
+  }
+
   h2 {
     font-family: "bebas-neue", sans-serif;
     font-size: 2rem;
