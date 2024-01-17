@@ -12,24 +12,23 @@
   .hero {
     margin-top: 1rem;
     width: 100%;
-    height: 30vh;
+    height: 20vh;
     background: url(https://image.tmdb.org/t/p/original/6MKr3KgOLmzOP6MSuZERO41Lpkt.jpg)
       no-repeat center center/cover;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 10rem;
-    -webkit-border-radius: 10rem;
-    -moz-border-radius: 10rem;
-    -ms-border-radius: 10rem;
-    -o-border-radius: 10rem;
-
+    border-radius: 1.5rem;
+    -webkit-border-radius: 1.5rem;
+    -moz-border-radius: 1.5rem;
+    -ms-border-radius: 1.5rem;
+    -o-border-radius: 1.5rem;
     h1 {
       font-family: "bebas-neue", sans-serif;
       text-transform: uppercase;
       font-size: 5rem;
       color: rgb(130, 0, 252);
-      padding-top: 12rem;
+      padding-top: 6rem;
       text-shadow: 2px 2px 3px rgba(184, 235, 255, 0.904);
       font-weight: 700;
     }
@@ -38,7 +37,7 @@
       text-transform: uppercase;
       font-size: 3.5rem;
       color: rgb(130, 0, 252);
-      padding-top: 13.1rem;
+      padding-top: 7rem;
       text-shadow: 2px 2px 3px rgba(184, 235, 255, 0.904);
       font-weight: 700;
     }
@@ -49,8 +48,8 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      margin-top: 2rem;
-      margin-bottom: 2rem;
+      margin-top: 1.5rem;
+      margin-bottom: 1rem;
 
       input {
         width: 50%;
@@ -97,49 +96,48 @@
       gap: 1rem;
 
       .resultsMovies {
-
-      
-      border: solid 1px rgb(79, 79, 79);
-      padding: 0.5rem;
-      border-radius: 0.5rem;
-
-      h2 {
-        height: 2vh;
-        font-family: "Montserrat", sans-serif;
-        font-size: 1.2rem;
-        font-weight: 700;
-        text-align: center;
-      }
-      img {
-        width: 100%;
-        height: auto;
+        border: solid 1px rgb(79, 79, 79);
+        padding: 0.5rem;
         border-radius: 0.5rem;
-        -webkit-border-radius: 0.5rem;
-        -moz-border-radius: 0.5rem;
-        -ms-border-radius: 0.5rem;
-        -o-border-radius: 0.5rem;
-      }
 
-      p {
-        font-family: "Hind", sans-serif;
-        font-size: 1rem;
-        font-weight: 500;
-        text-align: center;
-        margin-top: 0.5rem;
-        margin-bottom: 0.5rem;
-      }
-      span {
-        font-family: "Hind", sans-serif;
-        font-size: 1rem;
-        font-weight: 500;
-        text-align: center;
-        margin-top: 0.5rem;
-        margin-bottom: 0.5rem;
-        color: rgb(0, 149, 89);
-        right: 0;
+        h2 {
+          height: 2vh;
+          font-family: "Montserrat", sans-serif;
+          font-size: 1.2rem;
+          font-weight: 700;
+          text-align: center;
+        }
+        img {
+          width: 100%;
+          height: auto;
+          border-radius: 0.5rem;
+          -webkit-border-radius: 0.5rem;
+          -moz-border-radius: 0.5rem;
+          -ms-border-radius: 0.5rem;
+          -o-border-radius: 0.5rem;
+        }
+
+        p {
+          font-family: "Hind", sans-serif;
+          font-size: 1rem;
+          font-weight: 500;
+          text-align: center;
+          margin-top: 0.5rem;
+          margin-bottom: 0.5rem;
+        }
+        span {
+          font-family: "Hind", sans-serif;
+          font-size: 1rem;
+          font-weight: 500;
+          text-align: center;
+          margin-top: 0.5rem;
+          margin-bottom: 0.5rem;
+          color: rgb(0, 149, 89);
+          right: 0;
+        }
       }
     }
-  }}
+  }
 
   .discoverMovies {
     display: grid;
@@ -148,7 +146,7 @@
 
     .discoverMovie_card {
       border: solid 1px rgb(79, 79, 79);
-      padding: 0.5rem;
+      //   padding: 0.5rem;
       border-radius: 0.5rem;
 
       h2 {
@@ -160,6 +158,7 @@
       }
 
       img {
+        padding: 0rem;
         width: 100%;
         height: auto;
         border-radius: 0.5rem;
@@ -186,6 +185,11 @@
         margin-bottom: 0.5rem;
         color: rgb(0, 149, 89);
         right: 0;
+      }
+      .date {
+        text-align: end;
+        margin-right: 1rem;
+        color: rgb(0, 149, 89);
       }
     }
   }

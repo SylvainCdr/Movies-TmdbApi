@@ -14,8 +14,8 @@ function Movies() {
   const props = {
     // dots: true, // Affiche les points de pagination
      infinite: true, // Permet de faire défiler le carrousel de manière infinie
-    slidesToShow: 4, // Nombre de films à afficher à la fois
-    slidesToScroll: 1, // Nombre de films à faire défiler à la fois
+    slidesToShow: 6, // Nombre de films à afficher à la fois
+    slidesToScroll: 2, // Nombre de films à faire défiler à la fois
     autoplay: true, // Active le mode de lecture automatique
     autoplaySpeed: 3000, // Vitesse de transition entre les slides en mode autoplay (en millisecondes)
     apiUrl: `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}`, // URL de l'API TMDB pour les films à venir
@@ -95,7 +95,7 @@ function Movies() {
         <div className="searchMovies">
           {searchResults.map((searchResult) => (
             <div key={searchResult.id} className="resultsMovies">
-              <h2>{searchResult.title}</h2>
+              <h3>{searchResult.title}</h3>
               <span>{searchResult.release_date.split("-")[0]}</span>
               <img
                 src={`https://image.tmdb.org/t/p/w500/${searchResult.poster_path}`}
@@ -130,7 +130,7 @@ function Movies() {
    {discoverMovies.map((discoverMovie) => (
   <div key={discoverMovie.id} className="discoverMovie_card">
     <h2>{discoverMovie.title}</h2>
-    <span>{discoverMovie.release_date.split('-')[0]}</span>
+    <p className="date">{discoverMovie.release_date.split('-')[0]}</p>
     {/* Autres informations sur le film */}
     <img
       src={`https://image.tmdb.org/t/p/w500/${discoverMovie.poster_path}`}
