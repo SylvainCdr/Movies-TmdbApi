@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import style from "./style.scss";
 
-function ModalTv({ tv, showModal, setShowModal }) {
+function TvModal({ tv, showModal, setShowModal }) {
   const API_KEY = process.env.REACT_APP_API_KEY;
   const [tvById, setTvById] = useState({});
   // Effet secondaire pour charger les objets films à découvrir au montage du composant
@@ -21,8 +21,10 @@ function ModalTv({ tv, showModal, setShowModal }) {
   };
 
   return (
-    <div className="containerModal" onClick={handleClose}>
+    <div className="container">
       {showModal && (
+    <div className="container_modal" onClick={handleClose}>
+      <div className="modal">
         <div className="itemModal">
           <div className="itemModal_imgTitle">
            
@@ -58,11 +60,13 @@ function ModalTv({ tv, showModal, setShowModal }) {
             <h4>Rating </h4><p>{movieById.vote_average}/10</p> 
             <h4>Reviews </h4> <p>{movieById.vote_count}</p> */}
             {/* <p>{movieById.video}</p> */}
-          </div>
+            </div>
+            </div>
         </div>
-      )}
-    </div>
+        </div>
+        )}
+            </div>
   );
 }
 
-export default ModalTv;
+export default TvModal;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import style from "./style.scss";
-import Modal from "../Modals/ModalMovie";
+import MovieModal from "../Modals/MovieModal";
 
 // DEBUT COMPOSANT SLIDE
 
@@ -14,7 +14,7 @@ import "slick-carousel/slick/slick-theme.css";
 // Définit la fonction Carousel, qui représente un carrousel de films
 // on récupère les props du composant Carousel
 
-export default function Carousel(props) {
+export default function MovieCarousel(props) {
   // Etat pour stocker les films à venir
   const [moviesToDisplay, setMoviesToDisplay] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
@@ -58,7 +58,7 @@ export default function Carousel(props) {
 
       {/* Modal pour afficher les détails du film */}
       {selectedMovie && selectedMovie.id && (
-        <Modal
+        <MovieModal
           movie={selectedMovie}
           showModal={showModal}
           setShowModal={setShowModal}

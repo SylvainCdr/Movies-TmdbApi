@@ -1,6 +1,6 @@
 import "./style.scss";
 import React, { useState, useEffect } from "react";
-import ModalTv from "../../Components/Modals/ModalTv";
+import TvModal from "../../Components/Modals/TvModal";
 import TvCarousel from "../../Components/Carousel/TvCarousel";
 
 function TV() {
@@ -101,7 +101,7 @@ function TV() {
       </div>
 
       {selectedTv && (
-        <ModalTv
+        <TvModal
           tv={selectedTv}
           showModal={showModal}
           setShowModal={setShowModal}

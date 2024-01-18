@@ -1,9 +1,8 @@
 import "./style.scss";
 import React, { useState, useEffect } from "react";
-// import { Link } from "react-router-dom";
-import Modal from "../../Components/Modals/ModalMovie";
-
-import Carousel from "../../Components/Carousel/Carousel";
+import MovieModal from "../../Components/Modals/MovieModal";
+import MovieCarousel from "../../Components/Carousel/MovieCarousel";
+import Search from "../../Components/Search/Search";
 
 function Movies() {
   // Récupère la clé API à partir des variables d'environnement
@@ -92,48 +91,16 @@ function Movies() {
         <h1>Film</h1> <br />
         <h2>Explorer</h2>
       </div>
+      
+      <Search />
       {/* ------------------------------------------------------------------------------------ */}
       {/* DEBUT SEARCHBAR */}
-      <div className="search">
-        <form onSubmit={handleSearch}>
-          <input
-            type="text"
-            placeholder="Enter a movie title"
-            value={search}
-            onChange={handleSearchChange}
-          />
-          <button type="submit">Search</button>
-        </form>
-        {/* FIN SEARCHBAR */}
-        {/* ------------------------------------------------------------------------------------ */}
-        {/* AFFICHAGE RESULTATS RECHERCHE EN MASQUANT LES DIV PAGE D ACCUEIL */}
-        <div className="searchMovies">
-          {searchResults.map((searchResult) => (
-            <div key={searchResult.id} className="resultsMovies">
-              <h3>{searchResult.title}</h3>
-              <span>{searchResult.release_date.split("-")[0]}</span>
-              <img
-                src={`https://image.tmdb.org/t/p/w500/${searchResult.poster_path}`}
-                alt={searchResult.title}
-                onClick={() => handleClick(searchResult)}
-              />
-              {/* <p>{searchResult.overview.substring(0, 200)} ...</p> */}
-              <p>
-                <span>{searchResult.vote_average}/10 </span>
-                <span>({searchResult.vote_count} reviews)</span>
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
-      {/* FIN AFFICHAGE RESULTATS RECHERCHE*/}
-      {/* ------------------------------------------------------------------------------------ */}
       <div className="carousels">
         {/* DEBUT CAROUSEL Upcoming Movies*/}
         <div className="upcomingMovies_carousel">
           <h2>Upcoming movies</h2>
           {/* Rend le composant Carousel avec les propriétés définies dans props1 */}
-          <Carousel {...props1} />
+          <MovieCarousel {...props1} />
         </div>
         {/* FIN CAROUSEL Upcoming Movies */}
         {/* ------------------------------------------------------------------------------------ */}
@@ -141,12 +108,11 @@ function Movies() {
         <div className="topRatedMovies_carousel">
           <h2>Top rated </h2>
           {/* Rend le composant Carousel avec les propriétés définies dans props2 */}
-          <Carousel {...props2} />
+          <MovieCarousel {...props2} />
         </div>
         {/* FIN CAROUSEL Top Rated Movies */}
         {/* ------------------------------------------------------------------------------------ */}
       </div>
-
       {/* DEBUT TRENDING NOW LIST */}
       <h2>Trendings now list</h2>
       {/* Liste des films à découvrir récupérés de l'API et elle est masquée si il y a des résultats de recherche*/}
@@ -174,11 +140,10 @@ function Movies() {
         </div>
       )}
       {/* FIN TRENDING NOW LIST */}
-
       {/* ------------------------------------------------------------------------------------ */}
       {/* APPEL DU COMPOSANT MODAL POUR AFFICHER LES DETAILS DU FILM */}
       {selectedMovie && selectedMovie.id && (
-        <Modal
+        <MovieModal
           movie={selectedMovie}
           showModal={showModal}
           setShowModal={setShowModal}

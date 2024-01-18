@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import style from "./style.scss";
 
-function Modal({ movie, showModal, setShowModal }) {
+function MovieModal({ movie, showModal, setShowModal }) {
   const API_KEY = process.env.REACT_APP_API_KEY;
   const [movieById, setMovieById] = useState({});
   const img =
@@ -24,8 +24,10 @@ function Modal({ movie, showModal, setShowModal }) {
   };
 
   return (
-    <div className="containerModal" onClick={handleClose}>
-      {showModal && (
+    <div className="container" >
+    {showModal && (
+      <div className="container_modal"onClick={handleClose} > 
+    <div className="modal" >
         <div className="itemModal">
           <div className="itemModal_imgTitle">
             
@@ -66,9 +68,11 @@ function Modal({ movie, showModal, setShowModal }) {
             {/* <p>{movieById.video}</p> */}
           </div>
         </div>
-      )}
+        </div>
+        </div>
+        )}
     </div>
   );
 }
 
-export default Modal;
+export default MovieModal;
