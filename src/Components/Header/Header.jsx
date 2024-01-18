@@ -22,7 +22,10 @@ function Header() {
         <nav className="header__nav">
           <ul onClick={burgerToggle}>
             <li>
-              <NavLink to="/">Movies</NavLink>
+              <NavLink to="/">Home</NavLink>
+            </li>
+            <li>
+              <NavLink to="/movies">Movies</NavLink>
             </li>
             <li>
               <NavLink to="/tv">TV Series</NavLink>
@@ -30,9 +33,6 @@ function Header() {
             <li>
               <NavLink to="/people">People</NavLink>
             </li>
-            {/* <li>
-              <NavLink to="/page4">Page4</NavLink>
-            </li> */}
             <span>
               <a href={link1} target="_blank" rel="noopener noreferrer">
                 <img

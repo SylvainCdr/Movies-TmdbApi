@@ -1,24 +1,5 @@
-.container {
-  width: 100%;
-
-  img {
-    &:hover {
-      -webkit-filter: brightness(125%);
-      -webkit-transition: all 0.3s ease;
-      -moz-transition: all s ease;
-      -o-transition: all s ease;
-      -ms-transition: all s ease;
-      transition: all s ease;
-    }
-  }
-
-  h2 {
-    font-family: "bebas-neue", sans-serif;
-    font-size: 2rem;
-    font-weight: 700;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-  }
+.homepage_container {
+  max-width: 1280px;
 
   .hero {
     margin-top: 1rem;
@@ -54,153 +35,99 @@
     }
   }
 
-  .search {
-    form {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-top: 1.5rem;
-      margin-bottom: 1rem;
+  h3 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 500;
+    margin: 3rem;
+    background: -webkit-linear-gradient(#faf9f9, #262626);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  
+  }
 
-      input {
-        width: 50%;
-        height: 3rem;
-        border: none;
-        padding-left: 1rem;
-        font-size: 1.5rem;
-        font-family: "Montserrat", sans-serif;
-        font-weight: 500;
-        color: rgb(54, 54, 54);
-        border-radius: 0.7rem;
-        -webkit-border-radius: 0.7rem;
-        -moz-border-radius: 0.7rem;
-        -ms-border-radius: 0.7rem;
-        -o-border-radius: 0.7rem;
-      }
+  h4 {
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+  }
 
-      button {
-        margin-left: 2rem;
-        width: 20%;
-        height: 3.2rem;
-        border: none;
-        background-color: rgb(0, 149, 89);
-        color: white;
-        font-size: 1.5rem;
-        font-family: "Montserrat", sans-serif;
-        font-weight: 500;
-        border-radius: 0.7rem;
-        -webkit-border-radius: 0.7rem;
-        -moz-border-radius: 0.7rem;
-        -ms-border-radius: 0.7rem;
-        -o-border-radius: 0.7rem;
+  .trailers {
+    display: flex;
+    width: 100%;
 
-        &:hover {
-          background-color: rgba(15, 232, 145, 0.8);
-          cursor: pointer;
-        }
+    button {
+      width: 5rem;
+      background-color: rgb(39, 39, 39);
+      color: rgb(255, 255, 255);
+      border: none;
+      font-size: 3rem;
+      border-radius: 0.5rem;
+      -webkit-border-radius: 0.5rem;
+      -moz-border-radius: 0.5rem;
+      -ms-border-radius: 0.5rem;
+      -o-border-radius: 0.5rem;
+      &:hover {
+        background-color: rgb(82, 0, 158);
+        font-size: 4rem;
+        transition: all 0.3s ease-in-out;
+        -webkit-transition: all 0.3s ease-in-out;
+        -moz-transition: all 0.3s ease-in-out;
+        -ms-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
       }
     }
-
-    .searchMovies {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1rem;
-
-      .resultsMovies {
-        border: solid 1px rgb(79, 79, 79);
-        padding: 0.5rem;
-        border-radius: 0.5rem;
-
-        h2 {
-          height: 2vh;
-          font-family: "Montserrat", sans-serif;
-          font-size: 1.2rem;
-          font-weight: 700;
-          text-align: center;
-        }
-        img {
-          width: 100%;
-          height: auto;
-          border-radius: 0.5rem;
-          -webkit-border-radius: 0.5rem;
-          -moz-border-radius: 0.5rem;
-          -ms-border-radius: 0.5rem;
-          -o-border-radius: 0.5rem;
-        }
-
-        p {
-          font-family: "Hind", sans-serif;
-          font-size: 1rem;
-          font-weight: 500;
-          text-align: center;
-          margin-top: 0.5rem;
-          margin-bottom: 0.5rem;
-        }
-        span {
-          font-family: "Hind", sans-serif;
-          font-size: 1rem;
-          font-weight: 500;
-          text-align: center;
-          margin-top: 0.5rem;
-          margin-bottom: 0.5rem;
-          color: rgb(0, 149, 89);
-          right: 0;
-        }
-      }
+    iframe {
+      width: 100%;
+      height: 600px;
+      margin: 0 0.3rem;
+      border-radius: 0.5rem;
+      -webkit-border-radius: 0.5rem;
+      -moz-border-radius: 0.5rem;
+      -ms-border-radius: 0.5rem;
+      -o-border-radius: 0.5rem;
     }
   }
 
-  .discoverMovies {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 1rem;
+  .section3 {
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      width: 100%;
 
-    .discoverMovie_card {
-      border: solid 1px rgb(79, 79, 79);
-      //   padding: 0.5rem;
-      border-radius: 0.5rem;
-
-      h2 {
-        height: 4vh;
-        font-family: "Montserrat", sans-serif;
-        font-size: 1.2rem;
-        font-weight: 500;
-        text-align: center;
-      }
-
-      img {
-        padding: 0rem;
+      .categories_movies,
+      .categories_tv,
+      .categories_people {
+        justify-content: center;
+        align-items: center;
         width: 100%;
-        height: auto;
+        height: 20rem;
+        margin: 0rem 0rem 2rem 0rem ;
         border-radius: 0.5rem;
         -webkit-border-radius: 0.5rem;
         -moz-border-radius: 0.5rem;
         -ms-border-radius: 0.5rem;
         -o-border-radius: 0.5rem;
-      }
-
-      p {
-        font-family: "Hind", sans-serif;
-        font-size: 1rem;
+        background-color: rgb(82, 0, 158);
+        color: white;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.7rem;
         font-weight: 500;
         text-align: center;
-        margin-top: 0.5rem;
-        margin-bottom: 0.5rem;
-      }
-      span {
-        font-family: "Hind", sans-serif;
-        font-size: 1rem;
-        font-weight: 500;
-        text-align: center;
-        margin-top: 0.5rem;
-        margin-bottom: 0.5rem;
-        color: rgb(0, 149, 89);
-        right: 0;
-      }
-      .date {
-        text-align: end;
-        margin-right: 1rem;
-        color: rgb(0, 149, 89);
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        -webkit-transition: all 0.3s ease-in-out;
+        -moz-transition: all 0.3s ease-in-out;
+        -ms-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+        img
+{
+          object-fit: cover;
+          width: 100%;
+          height: 100%;
+        }
       }
     }
   }
