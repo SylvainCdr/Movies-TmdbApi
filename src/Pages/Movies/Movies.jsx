@@ -64,10 +64,6 @@ function Movies() {
       });
   }, []);
 
-  // Fonction pour mettre à jour l'état de la barre de recherche lors de la saisie
-  const handleSearchChange = (event) => {
-    setSearch(event.target.value);
-  };
 
   // Fonction pour gérer la soumission du formulaire de recherche
   const handleSearch = (event) => {
@@ -92,9 +88,36 @@ function Movies() {
         <h2>Explorer</h2>
       </div>
       
-      <Search />
+     {/* ------------------------------------------------------------------------------------ 
+     APPEL DU COMPOSANT Search  */}
+      <Search setSearchResults={setSearchResults} />
       {/* ------------------------------------------------------------------------------------ */}
-      {/* DEBUT SEARCHBAR */}
+
+     
+        {/* AFFICHAGE RESULTATS RECHERCHE EN MASQUANT LES DIV PAGE D ACCUEIL */}
+        <div className="searchMovies">
+        
+          {searchResults.map((searchResult) => (
+            <div key={searchResult.id} className="resultsMovies">
+              <h3>{searchResult.title}</h3>
+              <span>{searchResult.release_date.split("-")[0]}</span>
+              <img
+                src={`https://image.tmdb.org/t/p/w500/${searchResult.poster_path}`}
+                alt={searchResult.title}
+                onClick={() => handleClick(searchResult)}
+              />
+              {/* <p>{searchResult.overview.substring(0, 200)} ...</p> */}
+              <p>
+                <span>{searchResult.vote_average}/10 </span>
+                <span>({searchResult.vote_count} reviews)</span>
+              </p>
+            </div>
+          ))}
+        </div>
+     
+      {/* FIN AFFICHAGE RESULTATS RECHERCHE*/}
+      {/* ------------------------------------------------------------------------------------ */}
+      
       <div className="carousels">
         {/* DEBUT CAROUSEL Upcoming Movies*/}
         <div className="upcomingMovies_carousel">

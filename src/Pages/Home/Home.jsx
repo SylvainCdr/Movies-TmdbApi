@@ -15,7 +15,7 @@ function Homepage() {
     )
       .then((response) => response.json())
       .then((data) => {
-        setMovies(data.results.slice(0, 10));
+        setMovies(data.results.slice(0, 20));
       });
   }, [API_KEY]);
 
@@ -85,7 +85,7 @@ function Homepage() {
         <h4>Categories</h4>
 <div className="section3">
       <div className="categories">
-        <div className="categories_movies">
+        <div className="categories_movies" on Click lnk to movies page>
             <h5>Movies</h5>
             <img src="https://www.dailylocal.com/wp-content/uploads/2023/07/Summer_Movies-Guide_84837.jpg?w=394" alt="logo" />  
         </div>
@@ -95,7 +95,7 @@ function Homepage() {
           </div>
             <div className="categories_people">
             <h5>People</h5>
-            <img src="https://s3-us-west-2.amazonaws.com/prd-rteditorial/wp-content/uploads/2018/03/13153742/RT_300EssentialMovies_700X250.jpg" alt="logo" />
+            <img src="https://images.squarespace-cdn.com/content/v1/5efb7a015dc2ac0077a81ea5/c7f09d02-25b9-4181-aa61-41a3481d47f9/actors-brad-collage-cruise-wallpaper-preview.jpeg" alt="logo" />
             </div>
           </div>
         

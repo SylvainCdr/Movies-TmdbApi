@@ -1,12 +1,17 @@
 import React from "react";
+import style from "./style.scss";
 import { useState } from "react";
 import MovieModal from "../Modals/MovieModal";
 
-function Search() {
-  const [searchResults, setSearchResults] = useState([]);
+function Search({setSearchResults}) {
+  // const [searchResults, setSearchResults] = useState([]);
   const [search, setSearch] = useState("");
   const [selectedMovie, setSelectedMovie] = useState(null);
   const [showModal, setShowModal] = useState(false);
+
+  const updateSearchResults = (results) => {
+    setSearchResults(results);
+  };
 
   // Fonction pour gérer le clic sur une image de film
   const handleClick = (movie) => {
@@ -51,25 +56,7 @@ function Search() {
         </form>
         {/* FIN SEARCHBAR */}
         {/* ------------------------------------------------------------------------------------ */}
-        {/* AFFICHAGE RESULTATS RECHERCHE EN MASQUANT LES DIV PAGE D ACCUEIL */}
-        <div className="searchMovies">
-          {searchResults.map((searchResult) => (
-            <div key={searchResult.id} className="resultsMovies">
-              <h3>{searchResult.title}</h3>
-              <span>{searchResult.release_date.split("-")[0]}</span>
-              <img
-                src={`https://image.tmdb.org/t/p/w500/${searchResult.poster_path}`}
-                alt={searchResult.title}
-                onClick={() => handleClick(searchResult)}
-              />
-              {/* <p>{searchResult.overview.substring(0, 200)} ...</p> */}
-              <p>
-                <span>{searchResult.vote_average}/10 </span>
-                <span>({searchResult.vote_count} reviews)</span>
-              </p>
-            </div>
-          ))}
-        </div>
+        
       </div>
       {/* FIN AFFICHAGE RESULTATS RECHERCHE*/}
       {/* ------------------------------------------------------------------------------------ */}

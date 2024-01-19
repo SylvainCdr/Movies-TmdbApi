@@ -2,6 +2,7 @@ import "./style.scss";
 import React, { useState, useEffect } from "react";
 import TvModal from "../../Components/Modals/TvModal";
 import TvCarousel from "../../Components/Carousel/TvCarousel";
+import Search from "../../Components/Search/Search";
 
 function TV() {
 
@@ -58,6 +59,9 @@ function TV() {
   return (
     <div className="container">
     
+
+
+
 
       <div className="carousels">
         {/* DEBUT CAROUSEL Upcoming Movies*/}
