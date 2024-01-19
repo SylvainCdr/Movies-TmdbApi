@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import style from "./style.scss";
-import TvModal from "../../Components/Modals/TvModal";
+import Modal from "../../Components/Modals/Modal";
 
 
 // DEBUT COMPOSANT SLIDE
@@ -58,9 +58,9 @@ export default function TvCarousel(props) {
       )}
 
       Modal pour afficher les détails du film
-      {selectedTv && selectedTv.id && (
-        <TvModal
-          tv={selectedTv}
+      {selectedTv && (
+        <Modal
+          media={selectedTv}
           showModal={showModal}
           setShowModal={setShowModal}
         />

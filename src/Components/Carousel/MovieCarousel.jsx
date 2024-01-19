@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import style from "./style.scss";
-import MovieModal from "../Modals/MovieModal";
+import Modal from "../../Components/Modals/Modal";
 
 // DEBUT COMPOSANT SLIDE
 
@@ -21,11 +21,11 @@ export default function MovieCarousel(props) {
   const [showModal, setShowModal] = useState(false);
 
   // Fonction pour gérer le clic sur une image de film
-  const handleClick = (movie) => {
-    console.log("Clicked on movie:", movie);
-    setSelectedMovie(movie);
-    setShowModal(true);
-  };
+const handleClick = (movie) => {
+  console.log("Clicked on movie:", movie);
+  setSelectedMovie(movie);
+  setShowModal(true);
+};
 
   // Effet secondaire pour charger les films à venir au montage du composant
   // on récupère les props du composant Carousel
@@ -43,23 +43,23 @@ export default function MovieCarousel(props) {
     <div>
       {moviesToDisplay.length > 0 && (
         <Slider {...props}>
-          {moviesToDisplay.map((movieToDisplay) => (
-            <div key={movieToDisplay.id} className="upcomingMovie_carousel">
-              <h3>{movieToDisplay.title}</h3>
-              <img
-                src={`${props.imgUrl}${movieToDisplay.poster_path}`}
-                alt={movieToDisplay.title}
-                onClick={() => handleClick(movieToDisplay)}
-              />
-            </div>
-          ))}
-        </Slider>
+        {moviesToDisplay.map((movieToDisplay) => (
+          <div key={movieToDisplay.id} className="upcomingMovie_carousel">
+            <h3>{movieToDisplay.title}</h3>
+            <img
+              src={`${props.imgUrl}${movieToDisplay.poster_path}`}
+              alt={movieToDisplay.title}
+              onClick={() => handleClick(movieToDisplay)}
+            />
+          </div>
+        ))}
+      </Slider>
       )}
 
       {/* Modal pour afficher les détails du film */}
-      {selectedMovie && selectedMovie.id && (
-        <MovieModal
-          movie={selectedMovie}
+      {selectedMovie && (
+        <Modal
+          media={selectedMovie}
           showModal={showModal}
           setShowModal={setShowModal}
         />
