@@ -1,14 +1,21 @@
-.carousels {
-    margin-bottom: 2rem;
+.carousel_container {
+  h3 {
+    height: 3.5vh;
+    text-align: center;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
 
-    h3 {
-        height: 3.5vh;
-        text-align: center;
+  img {
+    width: 97%;
+
+    &:hover {
+      -webkit-filter: brightness(125%);
+      -webkit-transition: all s ease;
+      -moz-transition: all s ease;
+      -o-transition: all s ease;
+      -ms-transition: all s ease;
+      transition: all s ease;
     }
-    
-    img {
-      
-        width: 97%;
-      
-    }
+  }
 }

@@ -1,7 +1,7 @@
 import "./style.scss";
 import React, { useState, useEffect } from "react";
 import Modal from "../../Components/Modal/Modal";
-import MovieCarousel from "../../Components/Carousel/Carousel";
+import Carousel from "../../Components/Carousel/Carousel";
 import Search from "../../Components/Search/Search";
 
 function Movies() {
@@ -18,7 +18,7 @@ function Movies() {
     slidesToShow: 6,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 1700,
     apiUrl: `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}`,
     imgUrl: "https://image.tmdb.org/t/p/w500/",
   };
@@ -28,7 +28,7 @@ function Movies() {
     slidesToShow: 6,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 1700,
     apiUrl: `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}`,
     imgUrl: "https://image.tmdb.org/t/p/w500/",
   };
@@ -64,27 +64,24 @@ function Movies() {
   };
 
   return (
-    <div className="container">
-      <div className="hero">
-        <h1>Film</h1> <br />
-        <h2>Explorer</h2>
-      </div>
+    <div className="movies_container">
+      
 
       <Search setSearchResults={setSearchResults} />
 
 
       <div className="carousels">
-        <div className="upcomingMovies_carousel">
+      
           <h2>Upcoming movies</h2>
-          <MovieCarousel {...props1} />
-        </div>
-        <div className="topRatedMovies_carousel">
+          <Carousel {...props1} />
+        
+       
           <h2>Top rated </h2>
-          <MovieCarousel {...props2} />
-        </div>
+          <Carousel {...props2} />
+        
       </div>
 
-      <h2>Trendings now list</h2>
+      <h3>Trendings now list</h3>
       {searchResults.length === 0 && (
         <div className="discoverMovies">
           {discoverMovies.map((discoverMovie) => (

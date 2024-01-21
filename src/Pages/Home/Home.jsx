@@ -1,11 +1,15 @@
-import React, { useState, useEffect } from "react";
-// import Search from "../../Components/Search/Search";
 import "./style.scss";
+import React, { useState, useEffect } from "react";
+import Search from "../../Components/Search/Search";
+import Modal from "../../Components/Modal/Modal";
 
 function Homepage() {
   const [movies, setMovies] = useState([]);
   const [movieTrailers, setMovieTrailers] = useState([]);
   const [currentTrailerIndex, setCurrentTrailerIndex] = useState(0);
+  const [searchResults, setSearchResults] = useState([]);
+  const [selectedMovie, setSelectedMovie] = useState(null);
+  const [showModal, setShowModal] = useState(false);
 
   const API_KEY = process.env.REACT_APP_API_KEY;
 
@@ -57,15 +61,27 @@ function Homepage() {
     );
   };
 
+  const handleClick = (media) => {
+    console.log("Clicked on movie:", media);
+    setSelectedMovie(media);
+    setShowModal(true);
+  };
+
+  // Update the selected movie and modal state when search results change
+  useEffect(() => {
+    setSelectedMovie(null);
+    setShowModal(false);
+  }, [searchResults]);
+
   return (
-    <div className="homepage_container">
+    <div className="home_container">
       <div className="hero">
-        <h1>Film</h1> <br />
-        <h2>Explorer</h2>
+        <h1>Film Explorer</h1>
       </div>
-      <h3>Explore the Latest Blockbusters on our Movie Hub !</h3>
-      {/* <Search setSearchResults={setSearchResults} /> */}
-      <h4>Trending trailers</h4>
+      <h2>Explore the Latest Blockbusters on our Movie Hub !</h2>
+      <Search setSearchResults={setSearchResults} />
+
+      <h3>Trending trailers</h3>
 
       {movieTrailers.length > 0 && (
         <div className="trailers">
@@ -84,24 +100,41 @@ function Homepage() {
           </button>
         </div>
       )}
-        <h4>Categories</h4>
-<div className="section3">
-      <div className="categories">
-        <div className="categories_movies" on Click lnk to movies page>
+      <h3>Categories</h3>
+      <div className="section3">
+        <div className="categories">
+          <div className="categories_movies" on Click lnk to movies page>
             <h5>Movies</h5>
-            <img src="https://www.dailylocal.com/wp-content/uploads/2023/07/Summer_Movies-Guide_84837.jpg?w=394" alt="logo" />  
-        </div>
+            <img
+              src="https://www.dailylocal.com/wp-content/uploads/2023/07/Summer_Movies-Guide_84837.jpg?w=394"
+              alt="logo"
+            />
+          </div>
           <div className="categories_tv">
             <h5>TV Shows</h5>
-            <img src="https://dims.apnews.com/dims4/default/a57c19c/2147483647/strip/true/crop/3000x2250+0+0/resize/599x449!/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2Fb8%2Fb2%2F1b55d9aab1e903c8d13365507abe%2F20e0b997b0004dfe8e27b3184f6087a8" alt="logo" />
+            <img
+              src="https://dims.apnews.com/dims4/default/a57c19c/2147483647/strip/true/crop/3000x2250+0+0/resize/599x449!/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2Fb8%2Fb2%2F1b55d9aab1e903c8d13365507abe%2F20e0b997b0004dfe8e27b3184f6087a8"
+              alt="logo"
+            />
           </div>
-            <div className="categories_people">
+          <div className="categories_people">
             <h5>People</h5>
-            <img src="https://images.squarespace-cdn.com/content/v1/5efb7a015dc2ac0077a81ea5/c7f09d02-25b9-4181-aa61-41a3481d47f9/actors-brad-collage-cruise-wallpaper-preview.jpeg" alt="logo" />
-            </div>
+            <img
+              src="https://images.squarespace-cdn.com/content/v1/5efb7a015dc2ac0077a81ea5/c7f09d02-25b9-4181-aa61-41a3481d47f9/actors-brad-collage-cruise-wallpaper-preview.jpeg"
+              alt="logo"
+            />
           </div>
-        
-    </div>
+    
+        </div>
+      </div>
+
+      {selectedMovie && (
+        <Modal
+          media={selectedMovie}
+          showModal={showModal}
+          setShowModal={setShowModal}
+        />
+      )}
     </div>
   );
 }

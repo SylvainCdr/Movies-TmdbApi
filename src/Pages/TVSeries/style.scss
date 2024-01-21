@@ -1,4 +1,16 @@
 .container {
+  
+
+  .carousels {
+
+    h2 {
+      font-family: "bebas-neue", sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+  }
 
     .tvTopRated, .tvPopular {
         display: grid;
@@ -14,6 +26,19 @@
       -moz-border-radius: 0.5rem;
       -ms-border-radius: 0.5rem;
       -o-border-radius: 0.5rem;
+
+      img {
+        width: 100%;
+    
+        &:hover {
+          -webkit-filter: brightness(125%);
+          -webkit-transition: all s ease;
+          -moz-transition: all s ease;
+          -o-transition: all s ease;
+          -ms-transition: all s ease;
+          transition: all s ease;
+        }
+      }
 h2{
         height: 4vh;
         font-family: "Montserrat", sans-serif;

@@ -50,14 +50,14 @@ export default function MovieCarousel(props) {
   }, []);
 
   return (
-    <div>
+    <div className="carousel_container">
       {mediaToDisplay.length > 0 && (
         <Slider {...props}>
           {mediaToDisplay.map((media) => (
-            <div key={media.id} className="upcomingMovie_carousel">
-              <h3>{media.title}</h3>
+            <div key={media.id} className="media_carousel">
+              <h3>{media.title || media.name} </h3>
               <img
-                src={`${props.imgUrl}${media.poster_path}`}
+                src={`${props.imgUrl}${media.poster_path || media.profile_path}`}
                 alt={media.title}
                 onClick={() => handleClick(media)}
               />

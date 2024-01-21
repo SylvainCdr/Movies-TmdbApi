@@ -20,7 +20,7 @@ function TV() {
     slidesToShow: 6,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 1700,
     apiUrl: `https://api.themoviedb.org/3/tv/on_the_air?api_key=${API_KEY}`,
     imgUrl: "https://image.tmdb.org/t/p/w500/",
   };
@@ -68,9 +68,9 @@ function TV() {
 
       <div className="carousels">
         <h2>TV Series on the air</h2>
-        <div className="tvOnTheAir">
+  
           <MovieCarousel {...props} />
-        </div>
+      
       </div>
 
       <h2>Top Rated TV Series</h2>

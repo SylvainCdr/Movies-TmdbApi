@@ -1,10 +1,12 @@
-.homepage_container {
+.home_container {
   max-width: 1280px;
 
   .hero {
-    margin-top: 1rem;
+
+    margin-top: 0.5rem;
     width: 100%;
     height: 20vh;
+    text-align: center;
     background: url(https://image.tmdb.org/t/p/original/6MKr3KgOLmzOP6MSuZERO41Lpkt.jpg)
       no-repeat center center/cover;
     display: flex;
@@ -16,41 +18,34 @@
     -ms-border-radius: 1.5rem;
     -o-border-radius: 1.5rem;
     h1 {
-      font-family: "bebas-neue", sans-serif;
+      font-family: "Montserrat", sans-serif;
+      width: 100%;
       text-transform: uppercase;
-      font-size: 5rem;
-      color: rgb(130, 0, 252);
-      padding-top: 6rem;
-      text-shadow: 2px 2px 3px rgba(184, 235, 255, 0.904);
-      font-weight: 700;
+      font-size: 4.5rem;
+      color: rgb(67, 2, 146);
+      margin-top: 4%;
+      text-shadow: 4px 2px 6px rgba(184, 235, 255, 0.904);
+      font-weight: 800;
     }
-    h2 {
-      font-family: "bebas-neue", sans-serif;
-      text-transform: uppercase;
-      font-size: 3.5rem;
-      color: rgb(130, 0, 252);
-      padding-top: 7rem;
-      text-shadow: 2px 2px 3px rgba(184, 235, 255, 0.904);
-      font-weight: 700;
-    }
+
   }
 
-  h3 {
+  h2 {
     text-align: center;
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 500;
-    margin: 3rem;
+    margin: 1rem;
     background: -webkit-linear-gradient(#faf9f9, #262626);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-  
   }
 
-  h4 {
-    font-size: 1.8rem;
-    font-weight: 500;
+  h3 {
+    font-family: "bebas-neue", sans-serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-top: 1rem;
     margin-bottom: 1rem;
-    margin-top: 2rem;
   }
 
   .trailers {
@@ -104,7 +99,7 @@
         align-items: center;
         width: 100%;
         height: 20rem;
-        margin: 0rem 0rem 2rem 0rem ;
+        margin: 0rem 0rem 2rem 0rem;
         border-radius: 0.5rem;
         -webkit-border-radius: 0.5rem;
         -moz-border-radius: 0.5rem;
@@ -112,7 +107,7 @@
         -o-border-radius: 0.5rem;
         background-color: rgb(82, 0, 158);
         color: white;
-        font-family: 'Montserrat', sans-serif;
+        font-family: "Montserrat", sans-serif;
         font-size: 1.7rem;
         font-weight: 500;
         text-align: center;
@@ -134,14 +129,11 @@
           -moz-transform: scale(1.1);
           -ms-transform: scale(1.1);
           -o-transform: scale(1.1);
-}
-        img
-{
+        }
+        img {
           object-fit: cover;
           width: 100%;
           height: 100%;
-
-      
         }
       }
     }

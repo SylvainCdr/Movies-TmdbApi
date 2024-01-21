@@ -11,6 +11,7 @@ function Search() {
 
 
   const handleClick = (media) => {
+    console.log("Clicked on media:", media);
     setSelectedMovie(media);
     setShowModal(true);
   };
@@ -52,6 +53,9 @@ function Search() {
       <h3>{searchResult.title || searchResult.name}</h3>
       {searchResult.release_date && (
         <span>{searchResult.release_date.split("-")[0]}</span>
+      )}
+      {searchResult.first_air_date && (
+        <span>{searchResult.first_air_date.split("-")[0]}</span>
       )}
       <img
         src={`https://image.tmdb.org/t/p/w500/${searchResult.poster_path}`}
