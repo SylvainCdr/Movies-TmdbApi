@@ -65,38 +65,51 @@ function TV() {
     <div className="container">
       <Search setSearchResults={setSearchResults} />
 
-
       <div className="carousels">
-        <h2>TV Series on the air</h2>
-  
-          <MovieCarousel {...props} />
-      
+        <h2>TV Shows on the air</h2>
+
+        <MovieCarousel {...props} />
+
+        <h2>Top Rated TV Shows</h2>
       </div>
 
-      <h2>Top Rated TV Series</h2>
       <div className="tvTopRated">
         {tvTopRated.map((tv) => (
           <div key={tv.id} className="tvTopRated_card">
             <h3>{tv.name}</h3>
+            <p className="date">{tv.first_air_date.split("-")[0]}</p>
+
             <img
               src={`https://image.tmdb.org/t/p/w500/${tv.poster_path}`}
               alt={tv.name}
               onClick={() => handleClick(tv)}
             />
+            <p>
+              <span>
+                {tv.vote_average}/10 ({tv.vote_count} reviews)
+              </span>
+            </p>
           </div>
         ))}
       </div>
 
-      <h2>Popular TV Series</h2>
+      <h2>Popular TV Shows</h2>
       <div className="tvPopular">
         {tvPopular.map((tv) => (
           <div key={tv.id} className="tvPopular_card">
             <h3>{tv.name}</h3>
+            <p className="date">{tv.first_air_date.split("-")[0]}</p>
+
             <img
               src={`https://image.tmdb.org/t/p/w500/${tv.poster_path}`}
               alt={tv.name}
               onClick={() => handleClick(tv)}
             />
+            <p>
+              <span>
+                {tv.vote_average}/10 ({tv.vote_count} reviews)
+              </span>
+            </p>
           </div>
         ))}
       </div>

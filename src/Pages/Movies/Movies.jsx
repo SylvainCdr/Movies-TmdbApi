@@ -79,14 +79,14 @@ function Movies() {
           <h2>Top rated </h2>
           <Carousel {...props2} />
         
-      </div>
 
-      <h3>Trendings now list</h3>
+      <h2>Trendings now list</h2>
+      </div>
       {searchResults.length === 0 && (
         <div className="discoverMovies">
           {discoverMovies.map((discoverMovie) => (
             <div key={discoverMovie.id} className="discoverMovie_card">
-              <h2>{discoverMovie.title}</h2>
+              <h3>{discoverMovie.title}</h3>
               <p className="date">{discoverMovie.release_date.split("-")[0]}</p>
               <img
                 src={`https://image.tmdb.org/t/p/w500/${discoverMovie.poster_path}`}

@@ -28,7 +28,7 @@ function Header() {
               <NavLink to="/movies">Movies</NavLink>
             </li>
             <li>
-              <NavLink to="/tv">TV Series</NavLink>
+              <NavLink to="/tv">TV Shows</NavLink>
             </li>
             <li>
               <NavLink to="/people">People</NavLink>

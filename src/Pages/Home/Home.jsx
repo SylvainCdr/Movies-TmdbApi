@@ -2,6 +2,7 @@ import "./style.scss";
 import React, { useState, useEffect } from "react";
 import Search from "../../Components/Search/Search";
 import Modal from "../../Components/Modal/Modal";
+import { Link } from "react-router-dom";
 
 function Homepage() {
   const [movies, setMovies] = useState([]);
@@ -103,26 +104,31 @@ function Homepage() {
       <h3>Categories</h3>
       <div className="section3">
         <div className="categories">
-          <div className="categories_movies" on Click lnk to movies page>
+          <div className="categories_movies" >
+          <Link to="/movies" className="categories_movies">
             <h5>Movies</h5>
             <img
               src="https://www.dailylocal.com/wp-content/uploads/2023/07/Summer_Movies-Guide_84837.jpg?w=394"
               alt="logo"
-            />
+            /> </Link>
           </div>
           <div className="categories_tv">
+          <Link to="/tv" className="categories_tv">
             <h5>TV Shows</h5>
             <img
               src="https://dims.apnews.com/dims4/default/a57c19c/2147483647/strip/true/crop/3000x2250+0+0/resize/599x449!/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2Fb8%2Fb2%2F1b55d9aab1e903c8d13365507abe%2F20e0b997b0004dfe8e27b3184f6087a8"
               alt="logo"
             />
+            </Link>
           </div>
           <div className="categories_people">
+          <Link to="/people" className="categories_people">
             <h5>People</h5>
             <img
               src="https://images.squarespace-cdn.com/content/v1/5efb7a015dc2ac0077a81ea5/c7f09d02-25b9-4181-aa61-41a3481d47f9/actors-brad-collage-cruise-wallpaper-preview.jpeg"
               alt="logo"
             />
+            </Link>
           </div>
     
         </div>
