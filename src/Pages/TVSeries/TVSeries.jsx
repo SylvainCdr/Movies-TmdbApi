@@ -7,6 +7,15 @@ import Search from "../../Components/Search/Search";
 function TV() {
   const API_KEY = process.env.REACT_APP_API_KEY;
 
+  
+  const [tvOnTheAir, setTvOnTheAir] = useState([]);
+  const [tvTopRated, setTvTopRated] = useState([]);
+  const [tvPopular, setTvPopular] = useState([]);
+  const [selectedTv, setSelectedTv] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+  const [search, setSearch] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
+  
   const props = {
     infinite: true,
     slidesToShow: 6,
@@ -16,15 +25,7 @@ function TV() {
     apiUrl: `https://api.themoviedb.org/3/tv/on_the_air?api_key=${API_KEY}`,
     imgUrl: "https://image.tmdb.org/t/p/w500/",
   };
-
-  const [tvOnTheAir, setTvOnTheAir] = useState([]);
-  const [tvTopRated, setTvTopRated] = useState([]);
-  const [tvPopular, setTvPopular] = useState([]);
-  const [selectedTv, setSelectedTv] = useState(null);
-  const [showModal, setShowModal] = useState(false);
-  const [search, setSearch] = useState("");
-  const [searchResults, setSearchResults] = useState([]);
-
+  
   useEffect(() => {
     fetch(`https://api.themoviedb.org/3/tv/top_rated?api_key=${API_KEY}`)
       .then((res) => res.json())

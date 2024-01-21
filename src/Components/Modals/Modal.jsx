@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import style from "./style.scss";
 
-function Modal({ media, showModal, setShowModal }) {
+function Modal  ({ media, showModal, setShowModal }) {
   const API_KEY = process.env.REACT_APP_API_KEY;
   const [mediaDetails, setMediaDetails] = useState({});
 
@@ -11,12 +11,14 @@ function Modal({ media, showModal, setShowModal }) {
         media.media_type === "movie"
           ? `https://api.themoviedb.org/3/movie/${media.id}?api_key=${API_KEY}`
           : `https://api.themoviedb.org/3/tv/${media.id}?api_key=${API_KEY}`;
-  
+
       fetch(fetchUrl)
         .then((res) => res.json())
         .then((json) => {
-          console.log(json);
           setMediaDetails(json);
+        })
+        .catch((error) => {
+          console.error("Error fetching data:", error);
         });
     }
   }, [API_KEY, media, showModal]);
@@ -32,10 +34,12 @@ function Modal({ media, showModal, setShowModal }) {
           <div className="modal">
             <div className="itemModal">
               <div className="itemModal_imgTitle">
-                <img
-                  src={`https://image.tmdb.org/t/p/w500/${mediaDetails.poster_path}`}
-                  alt={mediaDetails.title || mediaDetails.name}
-                />
+                {mediaDetails.poster_path && (
+                  <img
+                    src={`https://image.tmdb.org/t/p/w500/${mediaDetails.poster_path}`}
+                    alt={mediaDetails.title || mediaDetails.name}
+                  />
+                )}
               </div>
               <div className="itemModal_details">
                 <h3>{mediaDetails.title || mediaDetails.name}</h3>
@@ -51,13 +55,14 @@ function Modal({ media, showModal, setShowModal }) {
                 </p>
                 <h4>Genres</h4>{" "}
                 <p>
-                  {mediaDetails.genres?.map((genre) => genre.name).join(", ") ||
-                    "N/A"}
+                  {mediaDetails.genres
+                    ? mediaDetails.genres.map((genre) => genre.name).join(", ")
+                    : "N/A"}
                 </p>
                 {media.media_type === "tv" && (
                   <>
                     <h4>Origin country :</h4>
-                    <p>{mediaDetails.origin_country}</p>
+                    <p>{mediaDetails.origin_country || "N/A"}</p>
                   </>
                 )}
                 <h4>Synopsis </h4> <p>{mediaDetails.overview}</p>
@@ -82,6 +87,6 @@ function Modal({ media, showModal, setShowModal }) {
       )}
     </div>
   );
-}
+};
 
 export default Modal;

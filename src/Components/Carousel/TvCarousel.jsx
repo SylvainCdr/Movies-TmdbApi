@@ -23,7 +23,7 @@ export default function TvCarousel(props) {
 
   // Fonction pour gérer le clic sur une image de film
   const handleClick = (tv) => {
-    console.log("Clicked on movie:", tv);
+    console.log("Clicked on tv:", tv);
     setSelectedTv(tv);
     setShowModal(true);
   };
@@ -46,10 +46,10 @@ export default function TvCarousel(props) {
         <Slider {...props}>
           {tvToDisplay.map((tvToDisplay) => (
             <div key={tvToDisplay.id} className="upcomingMovie_carousel">
-              <h3>{tvToDisplay.title}</h3>
+              <h3>{tvToDisplay.name}</h3>
               <img
                 src={`${props.imgUrl}${tvToDisplay.poster_path}`}
-                alt={tvToDisplay.title}
+                alt={tvToDisplay.name}
                 onClick={() => handleClick(tvToDisplay)}
               />
             </div>

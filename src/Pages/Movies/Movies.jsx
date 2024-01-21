@@ -7,6 +7,12 @@ import Search from "../../Components/Search/Search";
 function Movies() {
   const API_KEY = process.env.REACT_APP_API_KEY;
 
+  const [discoverMovies, setDiscoverMovies] = useState([]);
+  const [searchResults, setSearchResults] = useState([]);
+  const [search, setSearch] = useState("");
+  const [selectedMovie, setSelectedMovie] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+
   const props1 = {
     infinite: true,
     slidesToShow: 6,
@@ -27,17 +33,6 @@ function Movies() {
     imgUrl: "https://image.tmdb.org/t/p/w500/",
   };
 
-  const [discoverMovies, setDiscoverMovies] = useState([]);
-  const [searchResults, setSearchResults] = useState([]);
-  const [search, setSearch] = useState("");
-  const [selectedMovie, setSelectedMovie] = useState(null);
-  const [showModal, setShowModal] = useState(false);
-
-  const handleClick = (movie) => {
-    setSelectedMovie(movie);
-    setShowModal(true);
-  };
-
   useEffect(() => {
     const time_window = "week";
     fetch(
@@ -49,6 +44,14 @@ function Movies() {
         setDiscoverMovies(json.results);
       });
   }, []);
+
+  const handleClick = (movie) => {
+    console.log("Clicked on movie:", movie);
+    setSelectedMovie(movie);
+    setShowModal(true);
+  };
+  
+
 
   const handleSearch = (event) => {
     event.preventDefault();
@@ -96,7 +99,7 @@ function Movies() {
         </div>
         <div className="topRatedMovies_carousel">
           <h2>Top rated </h2>
-          <MovieCarousel {...props2} />
+          <MovieCarousel {...props2}  />
         </div>
       </div>
 
