@@ -48,27 +48,36 @@ function Search() {
       </div>
 
       <div className="search_results">
-  {searchResults.map((searchResult) => (
-    <div key={searchResult.id} className="final_results">
-      <h3>{searchResult.title || searchResult.name}</h3>
-      {searchResult.release_date && (
-        <span>{searchResult.release_date.split("-")[0]}</span>
-      )}
-      {searchResult.first_air_date && (
-        <span>{searchResult.first_air_date.split("-")[0]}</span>
-      )}
-      <img
-        src={`https://image.tmdb.org/t/p/w500/${searchResult.poster_path}`}
-        alt={searchResult.title || searchResult.name}
-        onClick={() => handleClick(searchResult)}
-      />
-      <p>
-        <span>{searchResult.vote_average}/10 </span>
-        <span>({searchResult.vote_count} reviews)</span>
-      </p>
-    </div>
-  ))}
+  {searchResults
+    .sort((a, b) => {
+      // Trie par date de sortie (release_date ou first_air_date) par année décroissante
+      const dateA = a.release_date || a.first_air_date;
+      const dateB = b.release_date || b.first_air_date;
+
+      return new Date(dateB) - new Date(dateA);
+    })
+    .map((searchResult) => (
+      <div key={searchResult.id} className="final_results">
+        <h3>{searchResult.title || searchResult.name}</h3>
+        {searchResult.release_date && (
+          <span>{searchResult.release_date.split("-")[0]}</span>
+        )}
+        {searchResult.first_air_date && (
+          <span>{searchResult.first_air_date.split("-")[0]}</span>
+        )}
+        <img
+          src={`https://image.tmdb.org/t/p/w500/${searchResult.poster_path}`}
+          alt={searchResult.title || searchResult.name}
+          onClick={() => handleClick(searchResult)}
+        />
+        <p>
+          <span>{searchResult.vote_average}/10 </span>
+          <span>({searchResult.vote_count} reviews)</span>
+        </p>
+      </div>
+    ))}
 </div>
+
 
       {selectedMovie && selectedMovie.id && (
         <Modal
