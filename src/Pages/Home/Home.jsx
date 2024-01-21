@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+// import Search from "../../Components/Search/Search";
 import "./style.scss";
 
 function Homepage() {
@@ -63,6 +64,7 @@ function Homepage() {
         <h2>Explorer</h2>
       </div>
       <h3>Explore the Latest Blockbusters on our Movie Hub !</h3>
+      {/* <Search setSearchResults={setSearchResults} /> */}
       <h4>Trending trailers</h4>
 
       {movieTrailers.length > 0 && (

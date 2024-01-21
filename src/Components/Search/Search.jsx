@@ -1,10 +1,14 @@
 import React, { useState } from "react";
-import Modal from "../Modals/Modal";
+import Modal from "../Modal/Modal";
+import style from "./style.scss";
 
-function Search({ setSearchResults }) {
+function Search() {
+
   const [search, setSearch] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
   const [showModal, setShowModal] = useState(false);
+
 
   const handleClick = (media) => {
     setSelectedMovie(media);
@@ -29,8 +33,8 @@ function Search({ setSearchResults }) {
   };
 
   return (
-    <div>
-      <div className="search">
+    <div className="search">
+      <div className="search_bar">
         <form onSubmit={handleSearch}>
           <input
             type="text"
@@ -41,6 +45,26 @@ function Search({ setSearchResults }) {
           <button type="submit">Search</button>
         </form>
       </div>
+
+      <div className="search_results">
+  {searchResults.map((searchResult) => (
+    <div key={searchResult.id} className="final_results">
+      <h3>{searchResult.title || searchResult.name}</h3>
+      {searchResult.release_date && (
+        <span>{searchResult.release_date.split("-")[0]}</span>
+      )}
+      <img
+        src={`https://image.tmdb.org/t/p/w500/${searchResult.poster_path}`}
+        alt={searchResult.title || searchResult.name}
+        onClick={() => handleClick(searchResult)}
+      />
+      <p>
+        <span>{searchResult.vote_average}/10 </span>
+        <span>({searchResult.vote_count} reviews)</span>
+      </p>
+    </div>
+  ))}
+</div>
 
       {selectedMovie && selectedMovie.id && (
         <Modal

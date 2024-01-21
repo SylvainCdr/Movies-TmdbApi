@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import style from "./style.scss";
-import Modal from "../../Components/Modals/Modal";
+import Modal from "../Modal/Modal";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -12,7 +12,7 @@ export default function MovieCarousel(props) {
 
   const handleClick = (media) => {
     console.log("Clicked on media:", media);
-  
+
     if (media.title) {
       setSelectedMedia({
         id: media.id,
@@ -36,7 +36,7 @@ export default function MovieCarousel(props) {
         media_type: "tv",
       });
     }
-  
+
     setShowModal(true);
   };
 

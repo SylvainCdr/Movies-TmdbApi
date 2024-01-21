@@ -1,4 +1,5 @@
 .search {
+  .search_bar{
     form {
       display: flex;
       justify-content: center;
@@ -41,6 +42,54 @@
         &:hover {
           background-color: rgba(15, 232, 145, 0.8);
           cursor: pointer;
+        }
+      }
+    }}
+
+    .search_results {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1rem;
+
+      .final_results {
+        border: solid 1px rgb(79, 79, 79);
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+
+        h2 {
+          height: 2vh;
+          font-family: "Montserrat", sans-serif;
+          font-size: 1.2rem;
+          font-weight: 700;
+          text-align: center;
+        }
+        img {
+          width: 100%;
+          height: auto;
+          border-radius: 0.5rem;
+          -webkit-border-radius: 0.5rem;
+          -moz-border-radius: 0.5rem;
+          -ms-border-radius: 0.5rem;
+          -o-border-radius: 0.5rem;
+        }
+
+        p {
+          font-family: "Hind", sans-serif;
+          font-size: 1rem;
+          font-weight: 500;
+          text-align: center;
+          margin-top: 0.5rem;
+          margin-bottom: 0.5rem;
+        }
+        span {
+          font-family: "Hind", sans-serif;
+          font-size: 1rem;
+          font-weight: 500;
+          text-align: center;
+          margin-top: 0.5rem;
+          margin-bottom: 0.5rem;
+          color: rgb(0, 149, 89);
+          right: 0;
         }
       }
     }
