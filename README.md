@@ -37,7 +37,10 @@ Film Explorer est une application web permettant d'explorer les films, les émis
 
 ## Captures d'écran
 
-
+![Alt text](<Capture d'écran 2024-01-21 205621.png>)
+![Alt text](<Capture d'écran 2024-01-21 205655.png>)
+![Alt text](<Capture d'écran 2024-01-21 205859.png>)
+![Alt text](<Capture d'écran 2024-01-21 205716.png>)
 
 ## Auteur
 
