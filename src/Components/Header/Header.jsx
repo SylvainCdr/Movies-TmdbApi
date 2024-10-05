@@ -17,7 +17,7 @@ function Header() {
   // Fin fonction menu Burger
 
   return (
-    <>
+  
       <div className="header">
         <nav className="header__nav">
           <ul onClick={burgerToggle}>
@@ -45,7 +45,7 @@ function Header() {
           <div className="header__burgerMenu" onClick={burgerToggle}></div>
         </nav>
       </div>
-    </>
+   
   );
 }
 

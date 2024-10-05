@@ -103,8 +103,8 @@ function Homepage() {
       )}
       <h3>Categories</h3>
       <div className="section3">
-        <div className="categories">
-          <div className="categories_movies" >
+       
+          <div className="categories_card" >
           <Link to="/movies" className="categories_movies">
             <h5>Movies</h5>
             <img
@@ -112,7 +112,7 @@ function Homepage() {
               alt="logo"
             /> </Link>
           </div>
-          <div className="categories_tv">
+          <div className="categories_card">
           <Link to="/tv" className="categories_tv">
             <h5>TV Shows</h5>
             <img
@@ -121,7 +121,7 @@ function Homepage() {
             />
             </Link>
           </div>
-          <div className="categories_people">
+          <div className="categories_card">
           <Link to="/people" className="categories_people">
             <h5>People</h5>
             <img
@@ -131,7 +131,7 @@ function Homepage() {
             </Link>
           </div>
     
-        </div>
+       
       </div>
 
       {selectedMovie && (

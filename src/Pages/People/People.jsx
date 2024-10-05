@@ -35,7 +35,7 @@ function People() {
     }, []);
 
     return (
-        <div className="container">
+        <div className="people_container">
 
 
 

@@ -1,8 +1,8 @@
 .home_container {
   max-width: 1280px;
+  margin: auto;
 
   .hero {
-
     margin-top: 0.5rem;
     width: 100%;
     height: 20vh;
@@ -12,11 +12,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 1.5rem;
-    -webkit-border-radius: 1.5rem;
-    -moz-border-radius: 1.5rem;
-    -ms-border-radius: 1.5rem;
-    -o-border-radius: 1.5rem;
+    border-radius: 0.5rem;
+    -webkit-border-radius: 0.5rem;
+    -moz-border-radius: 0.5rem;
+    -ms-border-radius: 0.5rem;
+    -o-border-radius: 0.5rem;
     h1 {
       font-family: "Montserrat", sans-serif;
       width: 100%;
@@ -24,10 +24,9 @@
       font-size: 4.5rem;
       color: rgb(67, 2, 146);
       margin-top: 4%;
-      text-shadow: 4px 2px 6px rgba(184, 235, 255, 0.904);
+      text-shadow: 4px 2px 6px rgba(184, 235, 255, 0.524);
       font-weight: 800;
     }
-
   }
 
   h2 {
@@ -41,11 +40,16 @@
   }
 
   h3 {
-    font-family: "bebas-neue", sans-serif;
-    font-size: 1.6rem;
-    font-weight: 700;
-    margin-top: 1rem;
+  
+    font-size: 1.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-top: 3rem;
     margin-bottom: 1rem;
+    background-color: #430292;
+    padding: 0.7rem;
+    border-radius: 0.5rem;
+    text-align: center;
   }
 
   .trailers {
@@ -86,56 +90,61 @@
   }
 
   .section3 {
-    .categories {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 4rem;
-      width: 100%;
+    margin-bottom: 8rem;
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4rem;
+    width: 100%;
 
-      .categories_movies,
-      .categories_tv,
-      .categories_people {
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        height: 20rem;
-        margin: 0rem 0rem 2rem 0rem;
-        border-radius: 0.5rem;
-        -webkit-border-radius: 0.5rem;
-        -moz-border-radius: 0.5rem;
-        -ms-border-radius: 0.5rem;
-        -o-border-radius: 0.5rem;
-        background-color: rgb(82, 0, 158);
+    .categories_card {
+      h5 {
         color: white;
-        font-family: "Montserrat", sans-serif;
-        font-size: 1.7rem;
+        padding: 1rem;
         font-weight: 500;
+        font-size: 1.7rem;
+        font-family: "Montserrat", sans-serif;
         text-align: center;
-        cursor: pointer;
+        text-decoration: none;
+      }
+      // padding: 0.5rem;
+      width: 100%;
+      height: 80%;
+      cursor: pointer;
+      border-radius: 0.5rem;
+      -webkit-border-radius: 0.5rem;
+      -moz-border-radius: 0.5rem;
+      -ms-border-radius: 0.5rem;
+      -o-border-radius: 0.5rem;
+      background-color: rgba(219, 219, 219, 0.168);
+      transition: all 0.3s ease-in-out;
+      -webkit-transition: all 0.3s ease-in-out;
+      -moz-transition: all 0.3s ease-in-out;
+      -ms-transition: all 0.3s ease-in-out;
+      -o-transition: all 0.3s ease-in-out;
+
+      &:hover {
+        transform: scale(1.05);
         transition: all 0.3s ease-in-out;
         -webkit-transition: all 0.3s ease-in-out;
         -moz-transition: all 0.3s ease-in-out;
         -ms-transition: all 0.3s ease-in-out;
         -o-transition: all 0.3s ease-in-out;
-
-        &:hover {
-          transform: scale(1.1);
-          transition: all 0.3s ease-in-out;
-          -webkit-transition: all 0.3s ease-in-out;
-          -moz-transition: all 0.3s ease-in-out;
-          -ms-transition: all 0.3s ease-in-out;
-          -o-transition: all 0.3s ease-in-out;
-          -webkit-transform: scale(1.1);
-          -moz-transform: scale(1.1);
-          -ms-transform: scale(1.1);
-          -o-transform: scale(1.1);
-        }
-        img {
-          object-fit: cover;
-          width: 100%;
-          height: 100%;
-        }
+        -webkit-transform: scale(1.05);
+        -moz-transform: scale(1.05);
+        -ms-transform: scale(1.05);
+        -o-transform: scale(1.05);
       }
+      img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 0 0 0.5rem 0.5rem ;
+        -webkit-border-radius: 0 0 0.5rem 0.5rem ;
+        -moz-border-radius: 0 0 0.5rem 0.5rem ;
+        -ms-border-radius: 0 0 0.5rem 0.5rem ;
+        -o-border-radius: 0 0 0.5rem 0.5rem ;
+}
     }
   }
 }

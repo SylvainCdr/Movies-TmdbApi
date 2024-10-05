@@ -17,12 +17,12 @@
         font-family: "Montserrat", sans-serif;
         font-weight: 500;
         color: rgb(54, 54, 54);
-        border-radius: 0.7rem;
-        -webkit-border-radius: 0.7rem;
-        -moz-border-radius: 0.7rem;
-        -ms-border-radius: 0.7rem;
-        -o-border-radius: 0.7rem;
-      }
+        border-radius: 0.5rem;
+        -webkit-border-radius: 0.5rem;
+        -moz-border-radius: 0.5rem;
+        -ms-border-radius: 0.5rem;
+        -o-border-radius: 0.5rem;
+}
 
       button {
         margin-left: 2rem;
@@ -34,13 +34,13 @@
         font-size: 1.4rem;
         font-family: "Montserrat", sans-serif;
         font-weight: 500;
-        border-radius: 0.7rem;
-        -webkit-border-radius: 0.7rem;
-        -moz-border-radius: 0.7rem;
-        -ms-border-radius: 0.7rem;
-        -o-border-radius: 0.7rem;
-
-        &:hover {
+        border-radius: 0.5rem;
+        -webkit-border-radius: 0.5rem;
+        -moz-border-radius: 0.5rem;
+        -ms-border-radius: 0.5rem;
+        -o-border-radius: 0.5rem;
+        &:hover 
+{
           background-color: rgba(15, 232, 145, 0.8);
           cursor: pointer;
         }

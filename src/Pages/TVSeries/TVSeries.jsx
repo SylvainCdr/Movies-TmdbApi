@@ -7,12 +7,10 @@ import Search from "../../Components/Search/Search";
 function TV() {
   const API_KEY = process.env.REACT_APP_API_KEY;
 
-  const [tvOnTheAir, setTvOnTheAir] = useState([]);
   const [tvTopRated, setTvTopRated] = useState([]);
   const [tvPopular, setTvPopular] = useState([]);
   const [selectedTv, setSelectedTv] = useState(null);
   const [showModal, setShowModal] = useState(false);
-  const [search, setSearch] = useState("");
   const [searchResults, setSearchResults] = useState([]);
 
   const props = {
@@ -49,20 +47,9 @@ function TV() {
     setShowModal(true);
   };
 
-  const handleSearch = (event) => {
-    event.preventDefault();
-    fetch(
-      `https://api.themoviedb.org/3/search/tv?api_key=${API_KEY}&query=${search}`
-    )
-      .then((res) => res.json())
-      .then((json) => {
-        console.log(json);
-        setSearchResults(json.results);
-      });
-  };
 
   return (
-    <div className="container">
+    <div className="tvShows_container">
       <Search setSearchResults={setSearchResults} />
 
       <div className="carousels">

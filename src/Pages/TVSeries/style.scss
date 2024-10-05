@@ -1,36 +1,39 @@
-.container {
-  
-
+.tvShows_container {
+  max-width: 1280px;
+  margin : auto;
   .carousels {
-
-   h2 {
-    text-align: center;
-    font-family: "bebas-neue", sans-serif;
-    color: rgb(165, 147, 244);
-    font-size: 1.8rem;
-    font-weight: 700;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
+    h2 {
+      font-size: 1.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+      background-color: #430292;
+      padding: 0.7rem;
+      border-radius: 0.5rem;
+      text-align: center;
+    }
   }
-  }
 
-    .tvTopRated, .tvPopular {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 1rem;
-        
-        .tvOnTheAir_card, .tvTopRated_card, .tvPopular_card {
-          border: solid 1px rgb(79, 79, 79);
-          //   padding: 0.5rem;
-          border-radius: 0.5rem;
-      
+  .tvTopRated,
+  .tvPopular {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+
+    .tvOnTheAir_card,
+    .tvTopRated_card,
+    .tvPopular_card {
+      border: solid 1px rgb(79, 79, 79);
+      border-radius: 0.5rem;
+
       -webkit-border-radius: 0.5rem;
       -moz-border-radius: 0.5rem;
       -ms-border-radius: 0.5rem;
       -o-border-radius: 0.5rem;
 
       h3 {
-        padding:0.5rem;
+        padding: 0.5rem;
         height: 3vh;
         font-size: 1.2rem;
         font-weight: 500;
@@ -46,7 +49,7 @@
         -moz-border-radius: 0.5rem;
         -ms-border-radius: 0.5rem;
         -o-border-radius: 0.5rem;
-    
+
         &:hover {
           -webkit-filter: brightness(125%);
           -webkit-transition: all s ease;
@@ -56,7 +59,6 @@
           transition: all s ease;
         }
       }
-
 
       img {
         padding: 0rem;
@@ -93,5 +95,5 @@
         color: rgb(0, 149, 89);
       }
     }
-}
+  }
 }

@@ -1,5 +1,7 @@
 .movies_container {
   width: 100%;
+  max-width: 1280px;
+  margin : auto;
 
   img {
     &:hover {
@@ -15,13 +17,15 @@
   .carousels {
 
   h2 {
-    text-align: center;
-    font-family: "bebas-neue", sans-serif;
-    color: rgb(165, 147, 244);
-    font-size: 1.8rem;
-    font-weight: 700;
-    margin-top: 2rem;
+    font-size: 1.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-top: 3rem;
     margin-bottom: 1rem;
+    background-color: #430292;
+    padding: 0.7rem;
+    border-radius: 0.5rem;
+    text-align: center;
   }
 }
 

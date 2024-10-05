@@ -1,51 +1,39 @@
 .header {
   background: rgba(59, 0, 195, 0.962);
-  box-shadow: 0 0 10px rgba(255, 254, 254, 0.5);
-  border-radius: 0rem 0rem 1rem 1rem;
-  -webkit-border-radius: 0rem 0rem 1rem 1rem;
-  -moz-border-radius: 0rem 0rem 1rem 1rem;
-  -ms-border-radius: 0rem 0rem 1rem 1rem;
-  -o-border-radius: 0rem 0rem 1rem 1rem;
+  box-shadow: 0 0 10px rgba(255, 254, 254, 0.178);
 
 
-// DEBUT ANIMATION SURVOL PARENTHESES
-li:before,  li:after
-{
+  // DEBUT ANIMATION SURVOL PARENTHESES
+  li:before,
+  li:after {
     position: absolute;
     opacity: 0;
     font-size: 25px;
     top: 0px;
     transition: all 0.3s;
     color: var(--sunset7);
-}
+  }
 
-
-li:before
-{
-    content: '(';
-    top : -0.5rem;
+  li:before {
+    content: "(";
+    top: -0.5rem;
     left: -1rem;
     transform: translateX(10px);
-}
+  }
 
-li:after
-{
-    content: ')';
-    top : -0.5rem;
+  li:after {
+    content: ")";
+    top: -0.5rem;
     right: -1rem;
     transform: translateX(-10px);
-}
+  }
 
-li:hover:before, li:hover:after
-{
+  li:hover:before,
+  li:hover:after {
     opacity: 1;
     transform: translateX(0px);
-}
-// FIN ANIMATION SURVOL PARENTHESES
-
-
-
-
+  }
+  // FIN ANIMATION SURVOL PARENTHESES
 
   nav {
     margin: auto;
@@ -75,16 +63,7 @@ li:hover:before, li:hover:after
         -moz-transform: scale(1.1);
         -ms-transform: scale(1.1);
         -o-transform: scale(1.1);
-}
-
-
-
-
-
-
-
-
-      
+      }
     }
 
     a {
@@ -95,56 +74,52 @@ li:hover:before, li:hover:after
         width: 2.5rem;
       }
     }
-}
+  }
 }
 
 .header__burgerMenu {
   display: none;
 }
 
-
-
-
 @media screen and (max-width: 768px) {
   span {
     display: none;
-}
+  }
 
-// DEBUT MENU BURGER 
-.header__burgerMenu {
-  
+  // DEBUT MENU BURGER
+  .header__burgerMenu {
     display: flex;
-    margin-left :90%;
+    margin-left: 90%;
     font-size: 2rem;
     cursor: pointer;
     right: 0%;
-}
+  }
 
-.header__burgerMenu:before {
+  .header__burgerMenu:before {
     content: "\2630";
-}
-ul {
+  }
+  ul {
     position: fixed;
     left: -110%;
     top: 0;
     flex-direction: column;
     transition: 0.25s;
     background-color: rgb(114, 114, 114);
-     z-index: 100;
-    
-    li {
-        padding: 0.3rem 0 ;
+    z-index: 100;
 
-        &:hover {
-            background: #aaa9a9;
-        }
+    li {
+      padding: 0.3rem 0;
+
+      &:hover {
+        background: #aaa9a9;
+      }
     }
-}
-.active .header__burgerMenu:before {
+  }
+  .active .header__burgerMenu:before {
     content: "\2715";
-}
-.active ul{
+  }
+  .active ul {
     left: 0;
-}
+  }
 }
 // FIN MENU BURGER
