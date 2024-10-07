@@ -1,51 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
 import "./style.scss";
 import { NavLink } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons"; // Import des icônes
 
 function Header() {
-  const link1 = "https://www.themoviedb.org/";
+  const [isBurgerOpen, setIsBurgerOpen] = useState(false);
 
-  // Creation fonction menu Burger
-  let isBurgerOpen = false;
+  // Fonction pour basculer l'état du menu burger
   function burgerToggle() {
-    const nav = document.querySelector(".header__nav");
-    console.log(nav);
-    nav.classList.toggle("active");
-    isBurgerOpen = !isBurgerOpen;
+    setIsBurgerOpen(!isBurgerOpen);
   }
 
-  // Fin fonction menu Burger
-
   return (
-  
-      <div className="header">
-        <nav className="header__nav">
-          <ul onClick={burgerToggle}>
-            <li>
-              <NavLink to="/">Home</NavLink>
-            </li>
-            <li>
-              <NavLink to="/movies">Movies</NavLink>
-            </li>
-            <li>
-              <NavLink to="/tv">TV Shows</NavLink>
-            </li>
-            <li>
-              <NavLink to="/people">People</NavLink>
-            </li>
-            <span>
-              <a href={link1} target="_blank" rel="noopener noreferrer">
-                <img
-                  src="https://img.icons8.com/?size=48&id=AxHFXpfUuWsm&format=png"
-                  alt="github"
-                />
-              </a>
-            </span>
-          </ul>
-          <div className="header__burgerMenu" onClick={burgerToggle}></div>
-        </nav>
-      </div>
-   
+    <div className="header">
+      <nav className={`header__nav ${isBurgerOpen ? "active" : ""}`}>
+        <NavLink to="/">
+          <img
+            src="assets/filmExplorerLogo.png"
+            alt="website logo"
+            className="logo"
+          />
+        </NavLink>
+        <ul onClick={burgerToggle}>
+          <li></li>
+          <li>
+            <NavLink to="/movies">Movies</NavLink>
+          </li>
+          <li>
+            <NavLink to="/tv">TV Shows</NavLink>
+          </li>
+          <li>
+            <NavLink to="/people">People</NavLink>
+          </li>
+        </ul>
+
+        {/* Icône de menu burger */}
+        <div className="header__burgerMenu" onClick={burgerToggle}>
+          <FontAwesomeIcon icon={isBurgerOpen ? faTimes : faBars} />
+        </div>
+      </nav>
+    </div>
   );
 }
 
